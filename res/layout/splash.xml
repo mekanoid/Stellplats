@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: Layout should adopt to the device's screen size... -->
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+
+	<!-- Application name -->
+    <TextView android:id="@+id/appName"
+    	android:textAppearance="?android:attr/textAppearanceLarge" 
+    	android:layout_height="wrap_content"
+    	android:text="@string/app_name"
+    	android:layout_width="fill_parent" 
+    	android:gravity="center_horizontal"
+    	android:textSize="40dp"
+    	android:textStyle="bold"
+    	android:layout_marginTop="50sp">
+    </TextView>
+
+    <!-- Short information text -->
+    <TextView android:id="@+id/splashDescription"
+    	android:textAppearance="?android:attr/textAppearanceSmall" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:layout_gravity="center_horizontal" 
+    	android:text="@string/splash_description" 
+    	android:paddingLeft="30sp" 
+    	android:paddingRight="30sp"
+    	android:gravity="center_horizontal" 
+    	android:layout_marginTop="15sp">
+    </TextView>
+
+    <!-- Application icon (bigger) -->
+    <ImageView android:id="@+id/imageAppBig"
+    	android:layout_height="wrap_content"
+    	android:layout_width="wrap_content"
+    	android:src="@drawable/ic_launcher_stellplats"
+    	android:layout_gravity="center_horizontal"
+    	android:layout_marginTop="30dp">
+    </ImageView>
+
+	<!-- Version information -->
+    <LinearLayout android:id="@+id/linearLayout1"
+    	android:layout_width="fill_parent" 
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60sp">
+		<!-- Application version label -->
+    	<TextView android:id="@+id/textView2"
+    		android:textAppearance="?android:attr/textAppearanceSmall" 
+    		android:layout_height="wrap_content"
+    		android:layout_width="wrap_content" 
+    		android:gravity="center_horizontal"
+    		android:text="@string/splash_version"
+    		android:layout_marginRight="2sp">
+    	</TextView>
+		<!-- Application version number -->
+    	<TextView android:id="@+id/textView1"
+    		android:textAppearance="?android:attr/textAppearanceSmall" 
+    		android:layout_height="wrap_content"
+    		android:layout_width="wrap_content" 
+    		android:gravity="center_horizontal"
+    		android:text="@string/app_version"
+    		android:layout_marginLeft="2sp">
+    	</TextView>
+    </LinearLayout>
+
+	<!-- License information -->
+    <LinearLayout android:id="@+id/linearLayout1"
+    	android:layout_width="fill_parent" 
+    	android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp">
+		<!-- License text for information -->
+    	<TextView android:id="@+id/textView4" 
+    		android:textAppearance="?android:attr/textAppearanceSmall" 
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content" 
+    		android:layout_gravity="center_horizontal" 
+    		android:text="@string/app_license_text" 
+    		android:layout_marginRight="5sp">
+    	</TextView>
+    	<!-- License "and" label -->
+    	<TextView android:id="@+id/textView5" 
+    		android:textAppearance="?android:attr/textAppearanceSmall" 
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:text="@string/splash_and">
+    	</TextView>
+    	<!-- License text for application source -->
+    	<TextView android:id="@+id/textView6" 
+    		android:textAppearance="?android:attr/textAppearanceSmall" 
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content" 
+    		android:layout_marginLeft="5sp" 
+    		android:text="@string/app_license_source">
+    	</TextView>
+    </LinearLayout>
+    
+	<!-- Author information -->
+    <TextView android:id="@+id/textView3"
+    	android:textAppearance="?android:attr/textAppearanceSmall" 
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" 
+    	android:layout_gravity="center_horizontal"
+    	android:layout_marginTop="15sp" 
+    	android:text="@string/app_author">
+    </TextView>
+    
+</LinearLayout>

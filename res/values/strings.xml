@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Application general labels -->
+	<string name="app_version">0.9.0</string>
+	<string name="app_author">Campingwebben</string>
+	<string name="app_license_text">CC-BY-SA</string>
+	<string name="app_license_source">GPL</string>
+    <string name="app_name">Stellplats</string>
+
+	<!-- Splash screen labels -->
+	<string name="splash_description">Information about off-street parking in\nSweden, gathered by the users and\nput together by Campingwebben</string>
+ 	<string name="splash_version">Release</string>
+	<string name="splash_and">and</string>
+	<string name="splash_time">5000</string>
+
+	<!-- Details screen labels -->
+	<string name="details_label_facts">Facts</string>
+	<string name="details_label_caravan">Welcoming / enough place for caravans</string>
+	<string name="details_label_winter">Winter open</string>
+	<string name="details_label_stay">Unknown type of place</string>
+	<string name="details_label_longstay">More than one night</string>
+	<string name="details_label_shortstay">Single nights</string>
+	<string name="details_label_service">Service</string>
+	<string name="details_label_toilet">Toilets</string>
+	<string name="details_label_shower">Shower</string>
+	<string name="details_label_electric">Electricity</string>
+	<string name="details_label_water">Water</string>
+	<string name="details_label_waste">Waste</string>
+	<string name="details_label_fee">Fee</string>
+	<string name="details_label_descr">Description</string>
+	<string name="details_label_other">Other</string>
+
+	<!-- About dialog labels -->
+	<string name="about_label_about">About</string>
+	<string name="about_label_version">Release:</string>
+	<string name="about_label_text00">Application created 2011 by Peter Kindström, Campingwebben.</string>
+	<string name="about_label_head01">Thanks to</string>
+	<string name="about_label_text01a">All information contributors</string>
+	<string name="about_label_text01b">Noun for launcher symbol</string>
+	<string name="about_label_text01c">Chris Haseman for splash screen code</string>
+	<string name="about_label_head02">License</string>
+	<string name="about_label_text02a">Application released under GPL v3.0 or later.</string>
+	<string name="about_label_text02b">Text, icons and pictures licensed under Creative Commons BY-NC-SA v3.0 or later.</string>
+
+	<!-- Menu labels -->
+    <string name="list_menu_itemChoose_label">Choose region</string>
+	<string name="list_menu_itemAbout_label">About</string>
+
+	<!-- Choose region dialog heading -->
+	<string name="dialog_region">Choose region</string>
+
+	<!-- Misc labels -->
+    <string name="stellplats">Stellplats</string>
+    <string name="stellplatser">Stellplatses</string>
+    <string name="sweden">Sweden</string>
+
+	<!-- Names of regions -->
+	<string-array name="region">
+		<item>All</item>
+		<item>Blekinge</item>
+		<item>Dalarna</item>
+		<item>Gävleborg</item>
+		<item>Gotland</item>
+		<item>Halland</item>
+		<item>Jämtland</item>
+		<item>Jönköping</item>
+		<item>Kalmar</item>
+		<item>Kronoberg</item>
+		<item>Norrbotten</item>
+		<item>Södermanland</item>
+		<item>Skåne</item>
+		<item>Stockholm</item>
+		<item>Uppsala</item>
+		<item>Värmland</item>
+		<item>Västerbotten</item>
+		<item>Västernorrland</item>
+		<item>Västmanland</item>
+		<item>Västra Götaland</item>
+		<item>Örebro</item>
+		<item>Östergötland</item>
+	</string-array>
+	<!-- /Names of regions -->
+</resources>
+

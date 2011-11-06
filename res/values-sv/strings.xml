@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Application general labels -->
+	<string name="app_author">Campingwebben</string>
+    <string name="app_name">Ställplats</string>
+
+	<!-- Splash screen labels -->
+	<string name="splash_description">Information om svenska ställplatser,\ninsamlad av användarna själva och\nsammanställd av Campingwebben</string>
+	<string name="splash_version">Version</string>
+	<string name="splash_and">och</string>
+
+	<!-- Details screen labels -->
+	<string name="details_label_facts">Fakta</string>
+	<string name="details_label_caravan">Husvagnar är välkomna och/eller får plats</string>
+	<string name="details_label_winter">Vinteröppet</string>
+	<string name="details_label_stay">Okänd typ av plats</string>
+	<string name="details_label_longstay">Flera övernattningar</string>
+	<string name="details_label_shortstay">Enstaka övernattningar</string>
+	<string name="details_label_service">Service</string>
+	<string name="details_label_toilet">Toaletter</string>
+	<string name="details_label_shower">Dusch</string>
+	<string name="details_label_electric">El</string>
+	<string name="details_label_water">Vatten</string>
+	<string name="details_label_waste">Latrin</string>
+	<string name="details_label_fee">Avgift</string>
+	<string name="details_label_descr">Beskrivning</string>
+	<string name="details_label_other">Övrigt</string>
+
+	<!-- About dialog labels -->
+	<string name="about_label_about">Om</string>
+	<string name="about_label_version">Version:</string>
+	<string name="about_label_text00">Programmet är skapat 2011 av Peter Kindström, Campingwebben.</string>
+	<string name="about_label_head01">Tack till</string>
+	<string name="about_label_text01a">Alla som bidrar med ställplatsfakta</string>
+	<string name="about_label_text01b">Noun för symbol till programikonen</string>
+	<string name="about_label_text01c">Chris Haseman för splashscreen-kod</string>
+	<string name="about_label_head02">Licens</string>
+	<string name="about_label_text02a">Programmet är släppt under GPL v3.0 eller senare.</string>
+	<string name="about_label_text02b">Texter, ikoner och bilder är licensierade under Creative Commons BY-NC-SA v3.0 eller senare.</string>
+
+	<!-- Menu labels -->
+    <string name="list_menu_itemChoose_label">Välj län</string>
+	<string name="list_menu_itemAbout_label">Om</string>
+
+	<!-- Choose region dialog heading -->
+	<string name="dialog_region">Välj län</string>
+
+	<!-- Misc labels -->
+    <string name="stellplats">Ställplats</string>
+    <string name="stellplatser">Ställplatser</string>
+    <string name="sweden">Sverige</string>
+
+	<!-- Names of regions in database - should NOT be altered!!! -->
+	<!-- TODO: Autogenerate array from database instead -->
+	<string-array name="region">
+		<item>Alla</item>
+		<item>Blekinge</item>
+		<item>Dalarna</item>
+		<item>Gävleborg</item>
+		<item>Gotland</item>
+		<item>Halland</item>
+		<item>Jämtland</item>
+		<item>Jönköping</item>
+		<item>Kalmar</item>
+		<item>Kronoberg</item>
+		<item>Norrbotten</item>
+		<item>Södermanland</item>
+		<item>Skåne</item>
+		<item>Stockholm</item>
+		<item>Uppsala</item>
+		<item>Värmland</item>
+		<item>Västerbotten</item>
+		<item>Västernorrland</item>
+		<item>Västmanland</item>
+		<item>Västra Götaland</item>
+		<item>Örebro</item>
+		<item>Östergötland</item>
+	</string-array>
+	<!-- /Names of regions in database -->
+</resources>
+
