@@ -50,23 +50,22 @@
     <string name="stellplatser">Ställplatser</string>
     <string name="sweden">Sverige</string>
 
-	<!-- Names of regions in database - should NOT be altered!!! -->
-	<!-- TODO: Autogenerate array from database instead -->
+	<!-- Names of regions -->
 	<string-array name="region">
 		<item>Alla</item>
 		<item>Blekinge</item>
 		<item>Dalarna</item>
-		<item>Gävleborg</item>
 		<item>Gotland</item>
+		<item>Gävleborg</item>
 		<item>Halland</item>
 		<item>Jämtland</item>
 		<item>Jönköping</item>
 		<item>Kalmar</item>
 		<item>Kronoberg</item>
 		<item>Norrbotten</item>
-		<item>Södermanland</item>
 		<item>Skåne</item>
 		<item>Stockholm</item>
+		<item>Södermanland</item>
 		<item>Uppsala</item>
 		<item>Värmland</item>
 		<item>Västerbotten</item>
@@ -76,6 +75,6 @@
 		<item>Örebro</item>
 		<item>Östergötland</item>
 	</string-array>
-	<!-- /Names of regions in database -->
+	<!-- /Names of regions -->
 </resources>
 

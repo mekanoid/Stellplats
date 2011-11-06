@@ -43,9 +43,10 @@ public class List extends ListActivity {
 	private static final String fields[] = { "namn", "ort", "region", BaseColumns._ID };
 	private static final String order = "namn ASC";
 
-	SharedPreferences prefs;
+	SharedPreferences prefs = null;
 	String prefName = "Preferences";
 	final String CHOOSEN_REGION = "0";
+	int regionNo;
 	
 	/**
 	 *  Called when the activity is first created.
@@ -70,8 +71,8 @@ public class List extends ListActivity {
         }
 
     	// Load the SharedPreferences object and get last selected region
-    	prefs = getSharedPreferences(prefName, MODE_PRIVATE);
-        int regionNo = prefs.getInt(CHOOSEN_REGION, -1);
+        prefs = getSharedPreferences(prefName, MODE_PRIVATE);
+       	regionNo = prefs.getInt(CHOOSEN_REGION, 0);
 
 		// Get the name of the region from strings.xml
 		String[] items = getResources().getStringArray(R.array.region);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- Application general labels -->
-	<string name="app_version">0.9.0</string>
+	<string name="app_version">1.0.0</string>
 	<string name="app_author">Campingwebben</string>
 	<string name="app_license_text">CC-BY-SA</string>
 	<string name="app_license_source">GPL</string>
@@ -59,17 +59,17 @@
 		<item>All</item>
 		<item>Blekinge</item>
 		<item>Dalarna</item>
-		<item>Gävleborg</item>
 		<item>Gotland</item>
+		<item>Gävleborg</item>
 		<item>Halland</item>
 		<item>Jämtland</item>
 		<item>Jönköping</item>
 		<item>Kalmar</item>
 		<item>Kronoberg</item>
 		<item>Norrbotten</item>
-		<item>Södermanland</item>
 		<item>Skåne</item>
 		<item>Stockholm</item>
+		<item>Södermanland</item>
 		<item>Uppsala</item>
 		<item>Värmland</item>
 		<item>Västerbotten</item>
