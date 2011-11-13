@@ -2,27 +2,48 @@ package se.campingwebben.android.stellplats;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 
 public class Stellplats extends Activity {
 
-	long splashTime = 5000;			// Default splash time
+	long splashTime = 8000;			// Default splash time
 	boolean splashPause = false;
 	boolean splashActive = true;
 
+	SharedPreferences prefs;
+	String prefName = "Preferences";
+	String SPLASH_COUNT;
+	int splashCount;
+	
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 
 		// Draw the splash screen
 		setContentView(R.layout.splash);
 
-		// Get value from "strings.xml" and convert to Long
-		String temp = getResources().getString(R.string.splash_time);
-		splashTime = Long.parseLong(temp);
-		
-		// Very simple timer thread
+    	// Load the SharedPreferences object and get last selected region
+        prefs = getSharedPreferences(prefName, MODE_PRIVATE);
+        splashCount = prefs.getInt(SPLASH_COUNT, 1);
+       	
+    	splashTime = (splashTime/splashCount) + 3000;
+        if (splashCount<5) {
+        	// Add one to splashCount
+        	splashCount = splashCount+1;
+        	
+        	// Get the SharedPreferences object
+        	SharedPreferences.Editor editor = prefs.edit();
+
+            // Insert the choosen region number to preferences
+            editor.putInt(SPLASH_COUNT, splashCount);
+
+            // Saves the preferences
+            editor.commit();
+        }
+
+        // Very simple timer thread
 		Thread splashTimer = new Thread() {
 			public void run() {
 				try {

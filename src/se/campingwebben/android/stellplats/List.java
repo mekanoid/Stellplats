@@ -43,7 +43,7 @@ public class List extends ListActivity {
 	private static final String fields[] = { "namn", "ort", "region", BaseColumns._ID };
 	private static final String order = "namn ASC";
 
-	SharedPreferences prefs = null;
+	SharedPreferences prefs;
 	String prefName = "Preferences";
 	final String CHOOSEN_REGION = "0";
 	int regionNo;

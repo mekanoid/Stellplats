@@ -8,10 +8,9 @@
     <string name="app_name">Stellplats</string>
 
 	<!-- Splash screen labels -->
-	<string name="splash_description">Information about off-street parking in\nSweden, gathered by the users and\nput together by Campingwebben</string>
+	<string name="splash_description">Information about mobile home pitches\nin Sweden, collected by the users\nand organised by Campingwebben</string>
  	<string name="splash_version">Release</string>
 	<string name="splash_and">and</string>
-	<string name="splash_time">5000</string>
 
 	<!-- Details screen labels -->
 	<string name="details_label_facts">Facts</string>
