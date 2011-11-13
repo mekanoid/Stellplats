@@ -2,8 +2,8 @@ package se.campingwebben.android.stellplats;
 
 import java.io.IOException;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,13 +20,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SimpleCursorAdapter.ViewBinder;
 
-public class List extends ListActivity {
+public class List extends Activity {
 
 	/**
 	 *  Constants
@@ -57,6 +59,29 @@ public class List extends ListActivity {
 
         super.onCreate(savedInstanceState);
 
+        // Set the layout for this Activity
+        setContentView(R.layout.main);
+
+        // Get a reference to the list we are going to work with
+        ListView listRegion = (ListView) findViewById(R.id.listRegion);
+
+        // Listen for click on items and start a new Activity when clicked
+        listRegion.setOnItemClickListener(new OnItemClickListener() {
+        	   @Override
+        	   public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+        			// Prepare to open the Details Activity/View
+        			Intent myIntent = new Intent(view.getContext(), Details.class);
+        	        
+        			// Send some values to the new Activity (must be String!)
+        			String idTemp = Long.toString(id);
+        			myIntent.putExtra("id", idTemp);
+
+        			// Open the new Activity (and don't expect any response)
+        			startActivity(myIntent);
+        	   } 
+        	});
+
+        
 		// Set view title
 		setTitle(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
 		
@@ -70,7 +95,11 @@ public class List extends ListActivity {
         	throw new Error("Unable to create database");
         }
 
-    	// Load the SharedPreferences object and get last selected region
+		// Get reference to the title bar text
+		TextView txt = new TextView(this); 
+        txt = (TextView)findViewById(R.id.titleText); 
+
+        // Load the SharedPreferences object and get last selected region
         prefs = getSharedPreferences(prefName, MODE_PRIVATE);
        	regionNo = prefs.getInt(CHOOSEN_REGION, 0);
 
@@ -81,14 +110,14 @@ public class List extends ListActivity {
 		// Special if "all" regions are chosen
         if (regionNo == 0) {
 			// Set a new window title
-			setTitle(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
+			txt.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
 
         // Update the cursor with new data from database
 			select = "aktiv='1'";
         } else {
 			// Set a new window title
-			setTitle(this.getString(R.string.stellplats) + " " + regionName);
-
+			txt.setText(this.getString(R.string.stellplats) + " " + regionName);
+	        
 			// Make SQL WHERE clause
 			select = "region='" + regionNo + "' AND aktiv='1'";
 		}
@@ -100,7 +129,7 @@ public class List extends ListActivity {
 
 		// Make a list view with "R.layout.list_item" item layout 
         splAdapter = new SimpleCursorAdapter(this,
-        	R.layout.list_listitem,
+       		R.layout.list_listitem,
         	startCursor,
         	fields,
         	new int[] { R.id.list_listitem_labelName, R.id.list_listitem_labelPlace, R.id.list_listitem_labelRegion}
@@ -130,12 +159,10 @@ public class List extends ListActivity {
 			return false;
 			}
 		});
-        
-        // Show the list
-        setListAdapter(splAdapter);
+    
+        // Show items in the list
+        listRegion.setAdapter(splAdapter);
 
-        // Close database
-//        splDatabase.close();
 	}
 	
 	/**
@@ -220,25 +247,6 @@ public class List extends ListActivity {
 	    return true;
 	}
 	
-	/**
-	 * Listen for clicks on list items
-	 */
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-
-		super.onListItemClick(l, v, position, id);
-
-		// Prepare to open the Details Activity/View
-		Intent myIntent = new Intent(v.getContext(), Details.class);
-        
-		// Send some values to the new Activity (must be String!)
-		String idTemp = Long.toString(id);
-		myIntent.putExtra("id", idTemp);
-
-		// Open the new Activity (and don't expect any response)
-		startActivity(myIntent);
-	}
-
 	
 	/**
 	 * Update list with stellplatser from a different region = regionNo
@@ -246,27 +254,34 @@ public class List extends ListActivity {
 	public void regionListUpdate(Integer regionNo) {
 		String select;
 		Cursor splCursor;
-		
-		// Get the name of the region från strings.xml
+
+		// Get reference to the title bar text
+		TextView txt = new TextView(this); 
+        txt = (TextView)findViewById(R.id.titleText); 
+        
+		// Get a reference to the list we are going to work with
+        ListView listRegion = (ListView) findViewById(R.id.listRegion);
+        
+		// Get the name of the region from strings.xml
 		String[] items = getResources().getStringArray(R.array.region);
 		String regionName = items[regionNo];
 		
-		// Show which region that was choosen
+		// Show which region that was chosen
 		Toast.makeText(getApplicationContext(), regionName, Toast.LENGTH_SHORT).show();
 
 		// Open database for reading
         splDatabase = myDbHelper.getReadableDatabase();
 
-        // Special if "all" regions are choosen
+        // Special if "all" regions are chosen
         if (regionNo == 0) {
 			// Set a new window title
-			setTitle(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
+			txt.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
 
         // Update the cursor with new data from database
 			select = "aktiv='1'";
         } else {
 			// Set a new window title
-			setTitle(this.getString(R.string.stellplats) + " " + regionName);
+			txt.setText(this.getString(R.string.stellplats) + " " + regionName);
 
 			// Make SQL WHERE clause
 			select = "region='" + regionNo + "' AND aktiv='1'";
@@ -311,7 +326,7 @@ public class List extends ListActivity {
 		});
         
         // Show the list
-        setListAdapter(splAdapter);
+        listRegion.setAdapter(splAdapter);
 
         // Close database
 //        splDatabase.close();

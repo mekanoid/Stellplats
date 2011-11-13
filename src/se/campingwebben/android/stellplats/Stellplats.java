@@ -24,12 +24,15 @@ public class Stellplats extends Activity {
 		// Draw the splash screen
 		setContentView(R.layout.splash);
 
-    	// Load the SharedPreferences object and get last selected region
+    	// Load the SharedPreferences object and get last count
         prefs = getSharedPreferences(prefName, MODE_PRIVATE);
         splashCount = prefs.getInt(SPLASH_COUNT, 1);
        	
+    	// Calculate splash time to a minimum around 3s
     	splashTime = (splashTime/splashCount) + 3000;
-        if (splashCount<5) {
+
+    	// Add +1 to count the first few times to get decreasing splash times
+    	if (splashCount<5) {
         	// Add one to splashCount
         	splashCount = splashCount+1;
         	
