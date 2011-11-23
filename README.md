@@ -3,8 +3,8 @@ This repository contains an Android application called Stellplats (or Ställplat
 It's an app for finding pitches for mobile homes in Sweden.
 
 ## Download
-Right now it is *not* possible to download this app in any other way that forking or downloading this source code and 
-compile it in Eclipse or Android SDK. In time there will be an Android Market version too.
+You can download this application from [Android Market](http://bit.ly/stellplats) or by downloading this source code and 
+compile it in Eclipse or Android SDK.
 
 ## Translations
 Right now the app only comes with english (default) and swedish translations. 
