@@ -96,8 +96,8 @@ public class List extends Activity {
         }
 
 		// Get reference to the title bar text
-		TextView txt = new TextView(this); 
-        txt = (TextView)findViewById(R.id.titleText); 
+		TextView title = new TextView(this); 
+        title = (TextView)findViewById(R.id.titleText); 
 
         // Load the SharedPreferences object and get last selected region
         prefs = getSharedPreferences(prefName, MODE_PRIVATE);
@@ -110,13 +110,13 @@ public class List extends Activity {
 		// Special if "all" regions are chosen
         if (regionNo == 0) {
 			// Set a new window title
-			txt.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
+			title.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
 
         // Update the cursor with new data from database
 			select = "aktiv='1'";
         } else {
 			// Set a new window title
-			txt.setText(this.getString(R.string.stellplats) + " " + regionName);
+			title.setText(this.getString(R.string.stellplats) + " " + regionName);
 	        
 			// Make SQL WHERE clause
 			select = "region='" + regionNo + "' AND aktiv='1'";

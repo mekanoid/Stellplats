@@ -104,10 +104,13 @@ public class Details extends Activity{
 		// Close database
 		database.close();
 
-		// Set a new window title
-		// Use "this" instead of "getResources()" if you're already in a Context (Activity or Service)
-		setTitle(this.getString(R.string.stellplats) + " " + place);
+		// Get reference to the title bar text
+		TextView title = new TextView(this); 
+        title = (TextView)findViewById(R.id.titleText); 
 
+        // Set the title bar text
+        title.setText(this.getString(R.string.stellplats) + " " + place);
+        
 		/**
 		 *  Basic information
 		 */
