@@ -70,8 +70,8 @@ public class List extends Activity {
         	   @Override
         	   public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
         			// Prepare to open the Details Activity/View
-        			Intent myIntent = new Intent(view.getContext(), Details.class);
-        	        
+//        			Intent myIntent = new Intent(view.getContext(), Details.class);
+       			Intent myIntent = new Intent(view.getContext(), TabsActivity.class);      	        
         			// Send some values to the new Activity (must be String!)
         			String idTemp = Long.toString(id);
         			myIntent.putExtra("id", idTemp);

@@ -8,6 +8,8 @@
     	android:icon="@drawable/ic_launcher_stellplats"
     	android:label="@string/app_name"
 		android:debuggable="true">
+
+		<!-- Splash screen -->
         <activity
         	android:name=".Stellplats"
 			android:label="@string/app_name"
@@ -17,6 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+		<!-- View list of pitches -->
         <activity
         	android:name=".List"
         	android:label="@string/app_name"
@@ -26,8 +30,18 @@
 				<category android:name="android.intent.category.DEFAULT"/>
 			</intent-filter>
         </activity>
+
+		<!-- View info about one single pitch -->
+        <activity
+        	android:name=".TabsActivity"
+			android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
         <activity
         	android:name=".Details"
+			android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity
+        	android:name=".MapsActivity"
 			android:theme="@android:style/Theme.NoTitleBar">
         </activity>
 

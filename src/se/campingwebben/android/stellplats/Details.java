@@ -104,12 +104,13 @@ public class Details extends Activity{
 		// Close database
 		database.close();
 
+		// TODO: Ta bort när flikarna fungerar bra...
 		// Get reference to the title bar text
-		TextView title = new TextView(this); 
-        title = (TextView)findViewById(R.id.titleText); 
+//		TextView title = new TextView(this); 
+//        title = (TextView)findViewById(R.id.titleText); 
 
         // Set the title bar text
-        title.setText(this.getString(R.string.stellplats) + " " + place);
+//        title.setText(this.getString(R.string.stellplats) + " " + place);
         
 		/**
 		 *  Basic information
