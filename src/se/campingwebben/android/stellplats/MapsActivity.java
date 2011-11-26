@@ -107,7 +107,7 @@ public class MapsActivity extends MapActivity {
                 // Add the marker with offset
                 // TODO: Make an icon for each dpi
                 Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.ic_spl_mapsign);            
-                canvas.drawBitmap(bmp, screenPts.x-15, screenPts.y-15, null);         
+                canvas.drawBitmap(bmp, screenPts.x-18, screenPts.y-18, null);         
                 return true;
             }
 

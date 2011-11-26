@@ -282,12 +282,16 @@
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content">
 		<!-- GPS coordinates -->
-		<TextView android:id="@+id/text_wgs84" 
-			android:textAppearance="?android:attr/textAppearanceSmall" 
-			android:layout_width="wrap_content" 
-			android:text="text_wgs84" 
-			android:layout_height="wrap_content"
-			android:padding="5sp">
+
+		<TextView
+		    android:id="@+id/text_wgs84"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:clickable="true"
+		    android:padding="5sp"
+		    android:text="text_wgs84"
+		    android:textAppearance="?android:attr/textAppearanceSmall">
+
 		</TextView>
 		<!-- Latest update -->
 		<TextView android:id="@+id/text_updated" 
