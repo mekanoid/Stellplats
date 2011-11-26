@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- Application general labels -->
-	<string name="app_version">1.0.0</string>
+	<string name="app_version">1.1.0</string>
 	<string name="app_author">Campingwebben</string>
 	<string name="app_license_text">CC-BY-SA</string>
 	<string name="app_license_source">GPL</string>
@@ -13,6 +13,8 @@
 	<string name="splash_and">and</string>
 
 	<!-- Details screen labels -->
+	<string name="tabs_tabname_facts">Facts</string>
+	<string name="tabs_tabname_map">Map</string>
 	<string name="details_label_facts">Facts</string>
 	<string name="details_label_caravan">Welcoming / enough place for caravans</string>
 	<string name="details_label_winter">Winter open</string>

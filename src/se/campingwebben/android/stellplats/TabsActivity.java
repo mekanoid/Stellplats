@@ -33,15 +33,20 @@ public class TabsActivity extends TabActivity{
 		TabSpec firstTabSpec = tabHost.newTabSpec("tid1");
 		TabSpec secondTabSpec = tabHost.newTabSpec("tid1");
 
-		// Prepare new Activity and send some values to it (must be String!)
-		Intent myIntent = new Intent(this,Details.class);      	        
-		myIntent.putExtra("id", id);
+		// Prepare the list Activity and send some values to it (must be String!)
+		Intent listIntent = new Intent(this,Details.class);      	        
+		listIntent.putExtra("id", id);
+
+		// Prepare the map Activity and send some values to it (must be String!)
+		Intent mapIntent = new Intent(this,MapsActivity.class);      	        
+		mapIntent.putExtra("id", id);
 
 		// TabSpec setIndicator() is used to set name for the tab
 		// TabSpec setContent() is used to set content for a particular tab
-		// TODO: Variabler för namnen
-		firstTabSpec.setIndicator("Fakta").setContent(myIntent);
-		secondTabSpec.setIndicator("Karta").setContent(new Intent(this,MapsActivity.class));
+		String tabName1 = getResources().getString(R.string.tabs_tabname_facts);
+		firstTabSpec.setIndicator(tabName1).setContent(listIntent);
+		String tabName2 = getResources().getString(R.string.tabs_tabname_map);
+		secondTabSpec.setIndicator(tabName2).setContent(mapIntent);
 
 		// Add tabSpec to the TabHost to display
 		tabHost.addTab(firstTabSpec);

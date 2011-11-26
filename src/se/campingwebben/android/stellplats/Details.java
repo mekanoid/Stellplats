@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 public class Details extends Activity{
 
+	// SQL variables
 	private SQLiteDatabase database;
-
-	// SQLite query fields
 	private static final String fields[] = {
 		"namn", "ort", "region", "beskrivning", "uppdaterad", "wgs84_lat", "wgs84_long",
 		"plats_husvagn", "vinter",  "typ", "service_toalett", "service_dusch",
@@ -104,14 +103,6 @@ public class Details extends Activity{
 		// Close database
 		database.close();
 
-		// TODO: Ta bort när flikarna fungerar bra...
-		// Get reference to the title bar text
-//		TextView title = new TextView(this); 
-//        title = (TextView)findViewById(R.id.titleText); 
-
-        // Set the title bar text
-//        title.setText(this.getString(R.string.stellplats) + " " + place);
-        
 		/**
 		 *  Basic information
 		 */

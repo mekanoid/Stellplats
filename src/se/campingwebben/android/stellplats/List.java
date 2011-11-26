@@ -67,24 +67,22 @@ public class List extends Activity {
 
         // Listen for click on items and start a new Activity when clicked
         listRegion.setOnItemClickListener(new OnItemClickListener() {
-        	   @Override
-        	   public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
-        			// Prepare to open the Details Activity/View
-//        			Intent myIntent = new Intent(view.getContext(), Details.class);
-       			Intent myIntent = new Intent(view.getContext(), TabsActivity.class);      	        
-        			// Send some values to the new Activity (must be String!)
-        			String idTemp = Long.toString(id);
-        			myIntent.putExtra("id", idTemp);
+        	@Override
+        	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
-        			// Open the new Activity (and don't expect any response)
-        			startActivity(myIntent);
-        	   } 
-        	});
+        		// Prepare to open the Details Activity/View
+        		Intent myIntent = new Intent(view.getContext(), TabsActivity.class);      	        
+
+        		// Send some values to the new Activity (must be String!)
+        		String idTemp = Long.toString(id);
+        		myIntent.putExtra("id", idTemp);
+
+        		// Open the new Activity (and don't expect any response)
+        		startActivity(myIntent);
+        	} 
+        });
 
         
-		// Set view title
-		setTitle(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
-		
 		// Create a new instance of the DBmanger class
         myDbHelper = new DBmanager(this);
  
@@ -328,8 +326,6 @@ public class List extends Activity {
         // Show the list
         listRegion.setAdapter(splAdapter);
 
-        // Close database
-//        splDatabase.close();
 	}
 
 	/**
