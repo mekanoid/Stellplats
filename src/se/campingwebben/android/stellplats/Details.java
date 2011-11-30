@@ -1,18 +1,21 @@
 package se.campingwebben.android.stellplats;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Details extends Activity{
 
+	// SQL variables
 	private SQLiteDatabase database;
-
-	// SQLite query fields
 	private static final String fields[] = {
 		"namn", "ort", "region", "beskrivning", "uppdaterad", "wgs84_lat", "wgs84_long",
 		"plats_husvagn", "vinter",  "typ", "service_toalett", "service_dusch",
@@ -103,10 +106,6 @@ public class Details extends Activity{
 
 		// Close database
 		database.close();
-
-		// Set a new window title
-		// Use "this" instead of "getResources()" if you're already in a Context (Activity or Service)
-		setTitle(this.getString(R.string.stellplats) + " " + place);
 
 		/**
 		 *  Basic information
@@ -229,8 +228,20 @@ public class Details extends Activity{
 
         // GPS coordinates
     	String wgs84 = wgs84_lat + ", " + wgs84_long;
-        txt = (TextView)findViewById(R.id.text_wgs84); 
-        txt.setText(wgs84);
-	
+    	TextView gps = new TextView(this);
+    	gps = (TextView)findViewById(R.id.text_wgs84); 
+        gps.setText(wgs84);
+        gps.setOnClickListener(gpsListener);
 	}
+
+	// Create an anonymous implementation of OnClickListener
+	private OnClickListener gpsListener = new OnClickListener() {
+		public void onClick(View v) {
+			// Go to external navigation software when the text is clicked
+			Intent intent = new Intent(android.content.Intent.ACTION_VIEW, 
+					Uri.parse("google.navigation:q="+wgs84_lat+","+wgs84_long));
+			startActivity(intent);
+	    }
+	};
+
 }

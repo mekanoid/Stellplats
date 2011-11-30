@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost android:id="@android:id/tabhost"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<!-- Layout with tabs list and content -->
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:orientation="vertical"
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent">
+
+		<!-- Tabs without icons -->
+		<TabWidget android:id="@android:id/tabs"
+ 			android:layout_height="35dp"
+  			android:gravity="bottom"
+			android:layout_width="fill_parent">
+		</TabWidget>
+
+		<!-- Contents -->
+		<FrameLayout android:id="@android:id/tabcontent"
+			android:layout_height="fill_parent" 
+			android:layout_width="fill_parent">
+		</FrameLayout>
+
+	</LinearLayout>
+</TabHost>

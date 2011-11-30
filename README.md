@@ -14,6 +14,10 @@ you will be able to help out with translations!
 ## License
 This application is released under GPL v3.0 or later.
 
+## Permissions
+The following permission is used in the application:
+ - Internet - for Google maps
+
 ## More information
 Swedish users can visit [Campingwebben](http://www.campingwebben.se/android/ "Svenska ställplatser hos Campingwebben") 
 to get more information about this app. 

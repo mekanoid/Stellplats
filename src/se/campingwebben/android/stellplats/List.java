@@ -67,24 +67,22 @@ public class List extends Activity {
 
         // Listen for click on items and start a new Activity when clicked
         listRegion.setOnItemClickListener(new OnItemClickListener() {
-        	   @Override
-        	   public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
-        			// Prepare to open the Details Activity/View
-        			Intent myIntent = new Intent(view.getContext(), Details.class);
-        	        
-        			// Send some values to the new Activity (must be String!)
-        			String idTemp = Long.toString(id);
-        			myIntent.putExtra("id", idTemp);
+        	@Override
+        	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
-        			// Open the new Activity (and don't expect any response)
-        			startActivity(myIntent);
-        	   } 
-        	});
+        		// Prepare to open the Details Activity/View
+        		Intent myIntent = new Intent(view.getContext(), TabsActivity.class);      	        
+
+        		// Send some values to the new Activity (must be String!)
+        		String idTemp = Long.toString(id);
+        		myIntent.putExtra("id", idTemp);
+
+        		// Open the new Activity (and don't expect any response)
+        		startActivity(myIntent);
+        	} 
+        });
 
         
-		// Set view title
-		setTitle(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
-		
 		// Create a new instance of the DBmanger class
         myDbHelper = new DBmanager(this);
  
@@ -96,8 +94,8 @@ public class List extends Activity {
         }
 
 		// Get reference to the title bar text
-		TextView txt = new TextView(this); 
-        txt = (TextView)findViewById(R.id.titleText); 
+		TextView title = new TextView(this); 
+        title = (TextView)findViewById(R.id.titleText); 
 
         // Load the SharedPreferences object and get last selected region
         prefs = getSharedPreferences(prefName, MODE_PRIVATE);
@@ -110,13 +108,13 @@ public class List extends Activity {
 		// Special if "all" regions are chosen
         if (regionNo == 0) {
 			// Set a new window title
-			txt.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
+			title.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
 
         // Update the cursor with new data from database
 			select = "aktiv='1'";
         } else {
 			// Set a new window title
-			txt.setText(this.getString(R.string.stellplats) + " " + regionName);
+			title.setText(this.getString(R.string.stellplats) + " " + regionName);
 	        
 			// Make SQL WHERE clause
 			select = "region='" + regionNo + "' AND aktiv='1'";
@@ -328,8 +326,6 @@ public class List extends Activity {
         // Show the list
         listRegion.setAdapter(splAdapter);
 
-        // Close database
-//        splDatabase.close();
 	}
 
 	/**
