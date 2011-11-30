@@ -16,6 +16,7 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.provider.BaseColumns;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 
 public class MapsActivity extends MapActivity {
@@ -105,9 +106,22 @@ public class MapsActivity extends MapActivity {
                 mapView.getProjection().toPixels(point, screenPts);
  
                 // Add the marker with offset
-                // TODO: Make an icon for each dpi
                 Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.ic_spl_mapsign);            
-                canvas.drawBitmap(bmp, screenPts.x-18, screenPts.y-18, null);         
+
+                // Set marker to the right position
+                DisplayMetrics metrics = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(metrics);
+                switch(metrics.densityDpi){
+                     case DisplayMetrics.DENSITY_LOW:
+                         canvas.drawBitmap(bmp, screenPts.x-18, screenPts.y-36, null);         
+                         break;
+                     case DisplayMetrics.DENSITY_MEDIUM:
+                         canvas.drawBitmap(bmp, screenPts.x-24, screenPts.y-48, null);         
+                         break;
+                     case DisplayMetrics.DENSITY_HIGH:
+                         canvas.drawBitmap(bmp, screenPts.x-36, screenPts.y-72, null);         
+                         break;
+                }
                 return true;
             }
 
