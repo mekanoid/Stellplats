@@ -11,8 +11,8 @@
 
 		<!-- Add Google maps -->
 		<uses-library android:name="com.google.android.maps" />
-
-		<!-- Splash screen -->
+    
+        		<!-- Splash screen -->
         <activity
         	android:name=".Stellplats"
 			android:label="@string/app_name"

@@ -10,7 +10,7 @@
         android:layout_height="fill_parent"
         android:enabled="true"
         android:clickable="true"
-        android:apiKey="0kpDQZo6UvL7JiObvNtbi2t6OM9vf9OkTJDQZwA"
+        android:apiKey="0kpDQZo6UvL7lkYKQKZFT_hVK_VHUn2W60Gu2NQ"
     />
 	
 	<!-- Show zoom buttons -->
