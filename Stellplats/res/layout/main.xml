@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<!-- Custom titlebar -->
+	<TextView android:id="@+id/titleText"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Ställplats"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:paddingTop="3dp"
+		android:paddingBottom="3dp"
+		android:textStyle="bold"
+		android:textColor="@color/titletextcolor"
+		android:background="@color/titlebackgroundcolor"
+		android:shadowColor="@color/titleshadowcolor"
+		android:shadowRadius="3"
+	/>
+
+	<!-- List of pitches in a region (or all regions) -->
+	<ListView android:id="@+id/listRegion"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		/>
+
+ </LinearLayout>
