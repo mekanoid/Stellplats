@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- Application general labels -->
-	<string name="app_version">1.1.0</string>
+	<string name="app_version">1.2.0</string>
 	<string name="app_author">Campingwebben</string>
 	<string name="app_license_text">CC-BY-SA</string>
 	<string name="app_license_source">GPL</string>
@@ -45,6 +45,7 @@
 
 	<!-- Menu labels -->
     <string name="list_menu_itemChoose_label">Choose region</string>
+    <string name="list_menu_itemSync_label">Syncronize</string>
 	<string name="list_menu_itemAbout_label">About</string>
 
 	<!-- Choose region dialog heading -->

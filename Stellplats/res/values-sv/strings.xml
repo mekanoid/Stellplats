@@ -42,6 +42,7 @@
 
 	<!-- Menu labels -->
     <string name="list_menu_itemChoose_label">Välj län</string>
+    <string name="list_menu_itemSync_label">Synkronisera</string>
 	<string name="list_menu_itemAbout_label">Om</string>
 
 	<!-- Choose region dialog heading -->
