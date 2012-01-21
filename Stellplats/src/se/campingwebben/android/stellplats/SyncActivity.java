@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class SyncActivity extends Activity {
 	  
 	private static final String TAG = "PB_EXAMPLE";
-	private Integer etNumSecondsM;
+	private Integer requestType;
 	private TextView etSecondsProgressedM;
 	private ProgressBar pbDefaultM;
 	     
@@ -24,18 +24,18 @@ public class SyncActivity extends Activity {
 	     
 	   public void drawGUI()
 	   {
-	      Log.d(TAG, "Creating Graphic Interface");
 	      setContentView(R.layout.sync);
 
 	      // 
-	      etNumSecondsM = 10;
+	      requestType = 2;	// Status request
 	      etSecondsProgressedM = (TextView) findViewById( R.id.textView1);
 	         
 	      // Progress Bar
 	      pbDefaultM = (ProgressBar) findViewById( R.id.progressBar1);   
 	         
 	      // Start async task 
+	      Log.d(TAG, "Start ASYNC task");
 	      SyncManager pbTask = new SyncManager( pbDefaultM, etSecondsProgressedM);
-	      pbTask.execute(etNumSecondsM);
+	      pbTask.execute(requestType);
 	    }
 }
