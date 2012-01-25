@@ -45,7 +45,7 @@
 
 	<!-- Menu labels -->
     <string name="list_menu_itemChoose_label">Choose region</string>
-    <string name="list_menu_itemSync_label">Syncronize</string>
+    <string name="list_menu_itemMap_label">Map</string>
 	<string name="list_menu_itemAbout_label">About</string>
 
 	<!-- Choose region dialog heading -->

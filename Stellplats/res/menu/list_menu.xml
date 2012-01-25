@@ -4,10 +4,10 @@
     <item android:id="@+id/list_menu_itemChoose"
           android:icon="@drawable/ic_menu_list"
           android:title="@string/list_menu_itemChoose_label" />
-	<!-- The "Sync" button -->
-    <item android:id="@+id/list_menu_itemSync"
+	<!-- The "Map" button -->
+    <item android:id="@+id/list_menu_itemMap"
           android:icon="@drawable/ic_menu_list"
-          android:title="@string/list_menu_itemSync_label" />
+          android:title="@string/list_menu_itemMap_label" />
    	<!-- The "About" button -->
 	    <item android:id="@+id/list_menu_itemAbout"
           android:icon="@drawable/ic_menu_about"

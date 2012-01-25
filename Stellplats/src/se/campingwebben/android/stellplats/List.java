@@ -231,10 +231,10 @@ public class List extends Activity {
 	    		
 	            break;
 
-	        case R.id.list_menu_itemSync:
+	        case R.id.list_menu_itemMap:
 	            
 	        	// Prepare to open the Sync Activity/View
-        		Intent myIntent = new Intent(this, SyncActivity.class);      	        
+        		Intent myIntent = new Intent(this, GpsMapActivity.class);      	        
 
         		// Send some values to the new Activity (must be String!)
 //        		String idTemp = Long.toString(id);
