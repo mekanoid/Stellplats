@@ -36,7 +36,7 @@ public class MapsActivity extends MapActivity {
 	SharedPreferences prefs;
 	String prefName = "Preferences";
 	String MAP_ZOOM = "12";
-	Integer zoom;
+	int zoom;
 	
 	MapView mapView;
 	
@@ -149,14 +149,14 @@ public class MapsActivity extends MapActivity {
         
         // Add the location marker
         MapOverlay mapOverlay = new MapOverlay();
-        java.util.List<Overlay> listOfOverlays = mapView.getOverlays();
-        listOfOverlays.clear();
-        listOfOverlays.add(mapOverlay);        
+//        java.util.List<Overlay> listOfOverlays = mapView.getOverlays();
+//        listOfOverlays.clear();
+//        listOfOverlays.add(mapOverlay);        
  
         mapView.invalidate();
     }
 
-	@Override
+//	@Override
     protected boolean isRouteDisplayed() {
         return false;
     }

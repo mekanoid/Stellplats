@@ -34,7 +34,7 @@ public class Details extends Activity{
 	private String wgs84_lat;
 	private String wgs84_long;
 	// Facts
-	private Integer caravan;
+	private int caravan;
 	private Integer winter;
 	private Integer stay;
 	// Service
