@@ -67,7 +67,6 @@ public class List extends Activity {
 
         // Listen for click on items and start a new Activity when clicked
         listRegion.setOnItemClickListener(new OnItemClickListener() {
-        	@Override
         	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
         		// Prepare to open the Details Activity/View
