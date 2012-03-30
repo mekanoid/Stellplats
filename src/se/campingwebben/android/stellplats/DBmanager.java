@@ -125,7 +125,7 @@ public class DBmanager extends SQLiteOpenHelper {
 	     * Close database
 	     */
 	    @Override
-		public synchronized void close() {
+	    public synchronized void close() {
 	 
 	    	    if(myDataBase != null)
 	    		    myDataBase.close();
@@ -136,7 +136,7 @@ public class DBmanager extends SQLiteOpenHelper {
 	    /**
 	     * This method is called during the creation of the class(?)
 	     */
-		@Override
+	    @Override
 		public void onCreate(SQLiteDatabase db) {
 
 		}

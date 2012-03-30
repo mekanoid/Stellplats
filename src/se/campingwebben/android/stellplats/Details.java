@@ -77,7 +77,7 @@ public class Details extends Activity{
 	        // Get the name of the region
 	        tmp = data.getString(2);
 			String[] items = getResources().getStringArray(R.array.region);
-			region = items[Integer.valueOf(tmp)];
+			region = items[(int) Integer.valueOf(tmp)];
 	        description = data.getString(3);
 	        updated = data.getString(4);
 	        wgs84_lat = data.getString(5);

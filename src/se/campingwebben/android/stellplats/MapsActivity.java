@@ -36,7 +36,7 @@ public class MapsActivity extends MapActivity {
 	SharedPreferences prefs;
 	String prefName = "Preferences";
 	String MAP_ZOOM = "12";
-	Integer zoom;
+	int zoom;
 	
 	MapView mapView;
 	
