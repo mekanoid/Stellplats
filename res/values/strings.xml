@@ -37,7 +37,7 @@
 	<string name="about_label_text00">Application created 2011 by Peter Kindström, Campingwebben.</string>
 	<string name="about_label_head01">Thanks to</string>
 	<string name="about_label_text01a">All information contributors</string>
-	<string name="about_label_text01b">Noun for launcher symbol</string>
+	<string name="about_label_text01b">Noun for launcher symbol (PD)</string>
 	<string name="about_label_text01c">Chris Haseman for splash screen code</string>
 	<string name="about_label_head02">License</string>
 	<string name="about_label_text02a">Application released under GPL v3.0 or later.</string>
@@ -45,7 +45,8 @@
 
 	<!-- Menu labels -->
     <string name="list_menu_itemChoose_label">Choose region</string>
-	<string name="list_menu_itemAbout_label">About</string>
+    <string name="list_menu_itemMap_label">Map</string>
+    <string name="list_menu_itemAbout_label">About</string>
 
 	<!-- Choose region dialog heading -->
 	<string name="dialog_region">Choose region</string>

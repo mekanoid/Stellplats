@@ -67,7 +67,7 @@ public class List extends Activity {
 
         // Listen for click on items and start a new Activity when clicked
         listRegion.setOnItemClickListener(new OnItemClickListener() {
-        	@Override
+//        	@Override
         	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
         		// Prepare to open the Details Activity/View
@@ -183,6 +183,7 @@ public class List extends Activity {
 		final String CHOOSEN_REGION = "0";
 
 		switch (item.getItemId()) {
+			// Click on the Choose region item
 	        case R.id.list_menu_itemChoose:
 
 	    		// Create a new instance of the DBmanger class
@@ -231,6 +232,22 @@ public class List extends Activity {
 	            alert.show();
 	    		
 	            break;
+
+            // Click on the Map item
+	        case R.id.list_menu_itemMap:
+
+	        	// Prepare to open the Sync Activity/View
+	        	Intent myIntent = new Intent(this, GpsMapActivity.class);
+
+	        	// Send some values to the new Activity (must be String!)
+	        	// String idTemp = Long.toString(id);
+	        	// myIntent.putExtra("id", idTemp);
+
+	        	// Open the new Activity (and don't expect any response)
+	        	startActivity(myIntent);
+	        	break;
+
+	        // Click on the About item
 	        case R.id.list_menu_itemAbout:
 	        	AlertDialog about;
 	        	try {
