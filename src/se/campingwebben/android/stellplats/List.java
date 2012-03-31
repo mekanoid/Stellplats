@@ -1,7 +1,6 @@
 package se.campingwebben.android.stellplats;
 
 import java.io.IOException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
