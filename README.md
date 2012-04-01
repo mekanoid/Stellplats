@@ -16,14 +16,14 @@ This application is released under GPL v3.0 or later.
 
 ## Permissions
 The following permission is used in the application:
- - Internet - for Google maps
- - GPS - for showing pitches around your current location
+* Internet - for Google maps
+* GPS - for showing pitches around your current location
 
 ## More information
 Swedish users can visit [Campingwebben](http://www.campingwebben.se/android/ "Svenska ställplatser hos Campingwebben") 
 to get more information about this app. 
 They can also visit [Campingwebben at Google+](http://gplus.to/campingwebben/ "Follow Campingwebben at Google+") 
-to read the latest about the app.
+to read the latest news about the app.
 
 
 // Peter Kindström, Campingwebben
