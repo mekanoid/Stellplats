@@ -6,7 +6,7 @@
           android:title="@string/list_menu_itemChoose_label" />
 	<!-- The "Map" button -->
     <item android:id="@+id/list_menu_itemMap"
-          android:icon="@drawable/ic_menu_map"
+          android:icon="@drawable/ic_menu_gps"
           android:title="@string/list_menu_itemMap_label" />
     <!-- The "About" button -->
 	<item android:id="@+id/list_menu_itemAbout"

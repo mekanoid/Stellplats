@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- Application general labels -->
-	<string name="app_version">1.1.0</string>
+	<string name="app_version">1.2.0</string>
 	<string name="app_author">Campingwebben</string>
 	<string name="app_license_text">CC-BY-SA</string>
 	<string name="app_license_source">GPL</string>
@@ -12,6 +12,9 @@
  	<string name="splash_version">Release</string>
 	<string name="splash_and">and</string>
 
+	<!-- List view labels -->
+	<string name="list_img_alt">Show details</string>
+	
 	<!-- Details screen labels -->
 	<string name="tabs_tabname_facts">Facts</string>
 	<string name="tabs_tabname_map">Map</string>
@@ -30,7 +33,8 @@
 	<string name="details_label_fee">Fee</string>
 	<string name="details_label_descr">Description</string>
 	<string name="details_label_other">Other</string>
-
+	<string name="details_img_alt">Status</string>
+	
 	<!-- About dialog labels -->
 	<string name="about_label_about">About</string>
 	<string name="about_label_version">Release:</string>
@@ -45,7 +49,7 @@
 
 	<!-- Menu labels -->
     <string name="list_menu_itemChoose_label">Choose region</string>
-    <string name="list_menu_itemMap_label">Map</string>
+    <string name="list_menu_itemMap_label">GPS-map</string>
     <string name="list_menu_itemAbout_label">About</string>
 
 	<!-- Choose region dialog heading -->
@@ -53,7 +57,6 @@
 
 	<!-- Misc labels -->
     <string name="stellplats">Stellplats</string>
-    <string name="stellplatser">Stellplatses</string>
     <string name="sweden">Sweden</string>
 
 	<!-- Names of regions -->

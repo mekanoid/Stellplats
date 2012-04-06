@@ -17,8 +17,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.BaseColumns;
-import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 public class GpsMapActivity extends MapActivity implements LocationListener{
@@ -30,7 +28,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	private OverlayManager currPos;
 
 	// For debugging
-	private static final String TAG = "GpsMap";
+	// private static final String TAG = "GpsMap";
 
 	// Database variables
 	DBmanager myDbHelper = new DBmanager(this);
@@ -140,7 +138,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	OverlayItem overlayItem;
  
     	// Manage places
-    	// TODO: Make dynamic no of GeoPoint
+    	// TODO: Make dynamic no of GeoPoints?
     	GeoPoint[] splCoords = new GeoPoint[600];
     	Cursor cursor = getEvents();
 
@@ -165,7 +163,8 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     		// Log.d(TAG, lon.toString());
 
      String description = cursor.getString(3);
-     Log.d(TAG, description);
+//   TODO debugging
+//     Log.d(TAG, description);
 
      String r2a = "", r2b = "", r2c = "", r2d = "", r2e = "";
      String r3a = "", r3b = "", r3c = "", r3d = "", r3e = "";
@@ -317,9 +316,6 @@ mallsPos.setCurrentLocation(currentLocation);
     	select = select + "AND wgs84_long<'"+maxLon+"' ";
     	select = select + "AND wgs84_long>'"+minLon+"' ";
 
-    	// TODO: Debugging
-    	Log.d(TAG, "Select: "+select);
-
     	// Get coordinates from database
     	SQLiteDatabase db = myDbHelper.getReadableDatabase();
     	Cursor cursor = db.query("platser", fields, select, null, null, null, order);
@@ -335,24 +331,23 @@ mallsPos.setCurrentLocation(currentLocation);
     }
 
 	public void onLocationChanged(Location newLocation) {
-		// TODO Auto-generated method stub
     	setCurrentLocation(newLocation);
         drawPitches();
     	animateToCurrentLocation();
 	}
 
 	public void onProviderDisabled(String arg0) {
-		// TODO Auto-generated method stub
+		// TODO Make message language dependent?
 		Toast.makeText(this, "GPS disabled", Toast.LENGTH_SHORT).show();
 	}
 
 	public void onProviderEnabled(String arg0) {
-		// TODO Auto-generated method stub
+		// TODO Make message language dependent?
 		Toast.makeText(this, "GPS enabled", Toast.LENGTH_SHORT).show();
 	}
 
 	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-		// TODO Auto-generated method stub
+		// TODO Make message language dependent?
     	Toast.makeText(this, "Status Changed", Toast.LENGTH_SHORT).show();
 	}
 
