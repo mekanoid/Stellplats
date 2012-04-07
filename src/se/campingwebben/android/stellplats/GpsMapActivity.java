@@ -58,9 +58,13 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 
     public void getLastLocation(){
         String provider = getBestProvider();
-        currentLocation = locationManager.getLastKnownLocation(provider);
-       
-        /*The next 4 lines are used to hardcode our location
+        if(provider != null){
+            currentLocation = locationManager.getLastKnownLocation(provider);
+        } else {
+        	Toast.makeText(this, getString(R.string.gmap_msg_gpsNotActive), Toast.LENGTH_LONG).show();
+        }
+      
+        /* The next 4 lines are used to hardcode our location
          * If you wish to get your current location remember to
          * comment or remove them
          */
@@ -73,7 +77,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
         if(currentLocation != null){
         	setCurrentLocation(currentLocation);
         } else {
-        	Toast.makeText(this, "Location not yet acquired", Toast.LENGTH_LONG).show();
+        	Toast.makeText(this, getString(R.string.gmap_msg_noLocation), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -115,7 +119,8 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	Drawable marker = getResources().getDrawable(R.drawable.ic_map_current);
     	currPos = new OverlayManager(marker,mapView);
     	if(currentPoint!=null){
-    		OverlayItem overlayitem = new OverlayItem(currentPoint, "Aktuell position", "Här befinner du dig nu!");
+    		OverlayItem overlayitem = new OverlayItem(
+    				currentPoint, getString(R.string.gmap_msg_currentTitle), getString(R.string.gmap_msg_currentTitle));
     		currPos.addOverlay(overlayitem);
     		overlays.add(currPos);
     		currPos.setCurrentLocation(currentLocation);
@@ -138,15 +143,21 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	OverlayItem overlayItem;
  
     	// Manage places
-    	// TODO: Make dynamic no of GeoPoints?
-    	GeoPoint[] splCoords = new GeoPoint[600];
     	Cursor cursor = getEvents();
 
-    	// Iterate through all places
+    	// TODO: Make dynamic no of GeoPoints?
+//    	int nbrOfPoints = 600;
+    	int nbrOfPoints = cursor.getCount();
+		GeoPoint[] splCoords = new GeoPoint[nbrOfPoints];
+
+		// Iterate through all places
     	Integer no = 0;
     	cursor.moveToFirst();
     	while (cursor.moveToNext()) {
 
+    		/**
+    		 * General information
+    		 */
     		// Get the name
     		String name = cursor.getString(0);
 
@@ -154,127 +165,126 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     		double latTmp = cursor.getDouble(1);
     		latTmp = (latTmp * 1e6);
     		Integer lat = (int) latTmp;
-    		// Log.d(TAG, lat.toString());
 
-    		//Get longitude
+    		// Get longitude
     		double lonTmp = cursor.getDouble(2);
     		lonTmp = (lonTmp * 1e6);
     		Integer lon = (int) lonTmp;
-    		// Log.d(TAG, lon.toString());
 
-     String description = cursor.getString(3);
-//   TODO debugging
-//     Log.d(TAG, description);
+    		// Get description
+    		String description = cursor.getString(3);
 
-     String r2a = "", r2b = "", r2c = "", r2d = "", r2e = "";
-     String r3a = "", r3b = "", r3c = "", r3d = "", r3e = "";
+    		// Reset strings
+    		String r1a = "", r1b = "", r1c = "";
 
-     // If toilet
-     Integer s_toilet = cursor.getInt(7);
-     switch (s_toilet) {
-     case 1: r2a = "toalett, "; break;
-     case 2: r3a = "toalett, "; break;
-     }
+    		// Type of pitch
+    		Integer p_type = cursor.getInt(4);
+    		switch (p_type) {
+    			case 1: r1a = getString(R.string.gmap_ballon_layby)+", "; break;
+    			case 2: r1a = getString(R.string.gmap_ballon_pitch)+", "; break;
+    		}
 
-     Integer s_water = cursor.getInt(8);
-     switch (s_water) {
-     case 1: r2b = "vatten, "; break;
-     case 2: r3b = "vatten, "; break;
-     }
+    		// Open or closed during winter
+    		Integer p_winter = cursor.getInt(5);
+    		switch (p_winter) {
+    			case 1: r1b = getString(R.string.gmap_ballon_winterOpen)+", "; break;
+    			case 2: r1b = getString(R.string.gmap_ballon_winterClosed)+", "; break;
+    		}
 
-     Integer s_shower = cursor.getInt(9);
-     switch (s_shower) {
-     case 1: r2c = "dusch, "; break;
-     case 2: r3c = "dusch, "; break;
-     }
+    		// If caravans are allowed
+    		Integer p_caravan = cursor.getInt(6);
+    		switch (p_caravan) {
+    			case 1: r1c = getString(R.string.gmap_ballon_caravan)+", "; break;
+    			case 2: r1c = getString(R.string.gmap_ballon_noCaravan)+", "; break;
+    		}
 
-     Integer s_waste = cursor.getInt(9);
-     switch (s_waste) {
-     case 1: r2d = "latrin, "; break;
-     case 2: r3d = "latrin, "; break;
-     }
+    		// Sum up general information about the pitch
+    		String r1 = r1a + r1b + r1c;
+    		if (r1.length()!=0) {
+    			r1 = r1.substring(0, 1).toUpperCase() + r1.substring(1).toLowerCase();
+    			r1 = r1.substring(0, r1.length()-2);
+    			description = r1 + "\n" + description;
+    		}
 
-     Integer s_electric = cursor.getInt(10);
-     switch (s_electric) {
-     case 1: r2e = "el, "; break;
-     case 2: r3e = "el, "; break;
-     }
+    		
+    		/**
+    		 * What services are available or not
+    		 */
+    		// Reset strings
+    		String r2a = "", r2b = "", r2c = "", r2d = "", r2e = "";
+    		String r3a = "", r3b = "", r3c = "", r3d = "", r3e = "";
 
+    		// If toilet
+    		Integer s_toilet = cursor.getInt(7);
+    		switch (s_toilet) {
+    			case 1: r2a = getString(R.string.gmap_ballon_toilet)+", "; break;
+    			case 2: r3a = getString(R.string.gmap_ballon_toilet)+", "; break;
+    		}
 
-     String r3 = r3a + r3b + r3c + r3d + r3e;
-     if (r3.length()!=0) {
-     r3 = r3.substring(0, 1).toUpperCase() + r3.substring(1).toLowerCase();
-     r3 = r3.substring(0, r3.length()-2);
-         description = "Saknar: " + r3 + "\n" + description;
-     }
+    		// If water
+    		Integer s_water = cursor.getInt(8);
+    		switch (s_water) {
+    			case 1: r2b = getString(R.string.gmap_ballon_water)+", "; break;
+    			case 2: r3b = getString(R.string.gmap_ballon_water)+", "; break;
+    		}
 
-     // Remove trailing ", "
-     String r2 = r2a + r2b + r2c + r2d + r2e;
-     if (r2.length()!=0) {
-     r2 = r2.substring(0, 1).toUpperCase() + r2.substring(1).toLowerCase();
-     r2 = r2.substring(0, r2.length()-2);
-         description = "Service: " + r2 + "\n" + description;
-     }
+    		// If shower
+    		Integer s_shower = cursor.getInt(9);
+    		switch (s_shower) {
+    			case 1: r2c = getString(R.string.gmap_ballon_shower)+", "; break;
+    			case 2: r3c = getString(R.string.gmap_ballon_shower)+", "; break;
+    		}
 
+    		// If waste
+    		Integer s_waste = cursor.getInt(9);
+    		switch (s_waste) {
+    			case 1: r2d = getString(R.string.gmap_ballon_waste)+", "; break;
+    			case 2: r3d = getString(R.string.gmap_ballon_waste)+", "; break;
+    		}
 
-     /*" "avgift", "plats_el */
-// Integer s_fee = cursor.getInt(10);
-// String rAa = "";
-// switch (s_fee) {
-// case 1: r3a = "Avgift, "; break;
-// case 2: r3a = "Gratis, "; break;
-// }
+    		// If electricity
+    		Integer s_electric = cursor.getInt(10);
+    		switch (s_electric) {
+    			case 1: r2e = getString(R.string.gmap_ballon_electric)+", "; break;
+    			case 2: r3e = getString(R.string.gmap_ballon_electric)+", "; break;
+    		}
 
+    		// Sum up what the pitch do not have access to
+    		String r3 = r3a + r3b + r3c + r3d + r3e;
+    		if (r3.length()!=0) {
+    			r3 = r3.substring(0, 1).toUpperCase() + r3.substring(1).toLowerCase();
+    			r3 = r3.substring(0, r3.length()-2);
+    			description =  getString(R.string.gmap_ballon_missing)+": " + r3 + "\n" + description;
+    		}
+
+    		// Sum up what the pitch have access to
+    		String r2 = r2a + r2b + r2c + r2d + r2e;
+    		if (r2.length()!=0) {
+    			r2 = r2.substring(0, 1).toUpperCase() + r2.substring(1).toLowerCase();
+    			r2 = r2.substring(0, r2.length()-2);
+    			description = getString(R.string.gmap_ballon_service)+": " + r2 + "\n" + description;
+    		}
+
+  		
+    		/**
+    		 * Make a Point Of Interest
+    		 */
+    		splCoords[no] = new GeoPoint(lat,lon); // Make a coordinate
+    		overlayItem = new OverlayItem(splCoords[no], name, description);
+    		mallsPos.addOverlay(overlayItem);
     
-     // Type of pitch
-     Integer p_type = cursor.getInt(4);
-     String r1a = "";
-     switch (p_type) {
-     case 1: r1a = "rastplats, "; break;
-     case 2: r1a = "ställplats, "; break;
-     }
+    		no++;
+    	}
 
-     // Open or closed during winter
-     Integer p_winter = cursor.getInt(5);
-     String r1b = "";
-     switch (p_winter) {
-     case 1: r1b = "vinteröppet, "; break;
-     case 2: r1b = "vinterstängt, "; break;
-     }
-
-     // If caravans allowed
-     Integer p_caravan = cursor.getInt(6);
-     String r1c = "";
-     switch (p_caravan) {
-     case 1: r1c = "plats för husvagn, "; break;
-     case 2: r1c = "ej husvagnar, "; break;
-     }
-
-     // Remove trailing ", "
-     String r1 = r1a + r1b + r1c;
-     if (r1.length()!=0) {
-     r1 = r1.substring(0, 1).toUpperCase() + r1.substring(1).toLowerCase();
-     r1 = r1.substring(0, r1.length()-2);
-         description = r1 + "\n" + description;
-     }
-
-     // Make a Point Of Interest
-         splCoords[no] = new GeoPoint(lat,lon); // Skapa en koordinat
-         overlayItem = new OverlayItem(splCoords[no], name, description);
-     mallsPos.addOverlay(overlayItem);
-    
-     no++;
-    }
-
-overlays.add(mallsPos);
-mallsPos.setCurrentLocation(currentLocation);
+    	overlays.add(mallsPos);
+    	mallsPos.setCurrentLocation(currentLocation);
     }
 
     
     /**
      * Get pitches from SQLite database
      *
-     * @return
+     * @return cursor
      */
     // TODO: Move to DBmanager class
     private Cursor getEvents() {
@@ -326,7 +336,6 @@ mallsPos.setCurrentLocation(currentLocation);
     }
 
     protected boolean isRouteDisplayed() {
-    	// TODO Auto-generated method stub
     	return false;
     }
 
@@ -337,18 +346,15 @@ mallsPos.setCurrentLocation(currentLocation);
 	}
 
 	public void onProviderDisabled(String arg0) {
-		// TODO Make message language dependent?
-		Toast.makeText(this, "GPS disabled", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, getString(R.string.gmap_msg_gpsDisabled), Toast.LENGTH_SHORT).show();
 	}
 
 	public void onProviderEnabled(String arg0) {
-		// TODO Make message language dependent?
-		Toast.makeText(this, "GPS enabled", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, getString(R.string.gmap_msg_gpsEnabled), Toast.LENGTH_SHORT).show();
 	}
 
 	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-		// TODO Make message language dependent?
-    	Toast.makeText(this, "Status Changed", Toast.LENGTH_SHORT).show();
+    	Toast.makeText(this, getString(R.string.gmap_msg_statusChanged), Toast.LENGTH_SHORT).show();
 	}
 
 	// When application gets focus back

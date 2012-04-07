@@ -7,6 +7,10 @@
 	<string name="app_license_source">GPL</string>
     <string name="app_name">Stellplats</string>
 
+    <!-- Misc labels -->
+    <string name="stellplats">Stellplats</string>
+    <string name="sweden">Sweden</string>
+    
 	<!-- Splash screen labels -->
 	<string name="splash_description">Information about mobile home pitches\nin Sweden, collected by the users\nand organised by Campingwebben</string>
  	<string name="splash_version">Release</string>
@@ -35,10 +39,34 @@
 	<string name="details_label_other">Other</string>
 	<string name="details_img_alt">Status</string>
 	
-	<!-- About dialog labels -->
+	<!-- GPS map screen labels -->
+	<string name="gmap_msg_gpsNotActive">GPS not activated</string>
+	<string name="gmap_msg_noLocation">Location not yet acquired</string>
+	<string name="gmap_msg_currentTitle">Current position</string>
+	<string name="gmap_msg_currentText">You are here!</string>
+	<string name="gmap_msg_gpsDisabled">GPS disabled</string>
+	<string name="gmap_msg_gpsEnabled">GPS enabled</string>
+	<string name="gmap_msg_statusChanged">Status changed</string>
+
+	<string name="gmap_ballon_layby">lay-by</string>
+	<string name="gmap_ballon_pitch">pitch</string>
+	<string name="gmap_ballon_winterOpen">winter open</string>
+	<string name="gmap_ballon_winterClosed">winter closed</string>
+	<string name="gmap_ballon_caravan">caravans welcome</string>
+	<string name="gmap_ballon_noCaravan">no caravans</string>
+	<string name="gmap_ballon_toilet">toilet</string>
+	<string name="gmap_ballon_water">water</string>
+	<string name="gmap_ballon_shower">shower</string>
+	<string name="gmap_ballon_waste">waste</string>
+	<string name="gmap_ballon_electric">electric</string>
+	<string name="gmap_ballon_missing">Missing</string>
+	<string name="gmap_ballon_service">Service</string>
+
+
+		<!-- About dialog labels -->
 	<string name="about_label_about">About</string>
 	<string name="about_label_version">Release:</string>
-	<string name="about_label_text00">Application created 2011 by Peter Kindström, Campingwebben.</string>
+	<string name="about_label_text00">Application created 2011-2012 by Peter Kindström, Campingwebben.</string>
 	<string name="about_label_head01">Thanks to</string>
 	<string name="about_label_text01a">All information contributors</string>
 	<string name="about_label_text01b">Noun for launcher symbol (PD)</string>
@@ -54,10 +82,6 @@
 
 	<!-- Choose region dialog heading -->
 	<string name="dialog_region">Choose region</string>
-
-	<!-- Misc labels -->
-    <string name="stellplats">Stellplats</string>
-    <string name="sweden">Sweden</string>
 
 	<!-- Names of regions -->
 	<string-array name="region">
