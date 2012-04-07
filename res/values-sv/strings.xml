@@ -61,7 +61,7 @@
 	<!-- About dialog labels -->
 	<string name="about_label_about">Om</string>
 	<string name="about_label_version">Version:</string>
-	<string name="about_label_text00">Programmet är skapat 2011-2012 av Peter Kindström, Campingwebben.</string>
+	<string name="about_label_text00">Programmet är skapat 2011–2012 av Peter Kindström, Campingwebben.</string>
 	<string name="about_label_head01">Tack till</string>
 	<string name="about_label_text01a">Alla som bidrar med ställplatsfakta</string>
 	<string name="about_label_text01b">Noun för programikonen (PD)</string>

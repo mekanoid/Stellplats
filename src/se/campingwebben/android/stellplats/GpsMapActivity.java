@@ -120,7 +120,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	currPos = new OverlayManager(marker,mapView);
     	if(currentPoint!=null){
     		OverlayItem overlayitem = new OverlayItem(
-    				currentPoint, getString(R.string.gmap_msg_currentTitle), getString(R.string.gmap_msg_currentTitle));
+    				currentPoint, getString(R.string.gmap_msg_currentTitle), getString(R.string.gmap_msg_currentText));
     		currPos.addOverlay(overlayitem);
     		overlays.add(currPos);
     		currPos.setCurrentLocation(currentLocation);

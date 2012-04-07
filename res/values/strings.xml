@@ -66,7 +66,7 @@
 		<!-- About dialog labels -->
 	<string name="about_label_about">About</string>
 	<string name="about_label_version">Release:</string>
-	<string name="about_label_text00">Application created 2011-2012 by Peter Kindström, Campingwebben.</string>
+	<string name="about_label_text00">Application created 2011–2012 by Peter Kindström, Campingwebben.</string>
 	<string name="about_label_head01">Thanks to</string>
 	<string name="about_label_text01a">All information contributors</string>
 	<string name="about_label_text01b">Noun for launcher symbol (PD)</string>

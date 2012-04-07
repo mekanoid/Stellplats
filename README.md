@@ -3,7 +3,7 @@ This repository contains an Android application called Stellplats (or Ställplat
 It's an app for finding pitches for mobile homes in Sweden.
 
 ## Download
-You can download this application from [Android Market](http://bit.ly/stellplats) or by downloading this source code and 
+You can download this application from [Google Play Market](http://bit.ly/stellplats) or by downloading this source code and 
 compile it in Eclipse or Android SDK.
 
 ## Translations
@@ -13,6 +13,9 @@ you will be able to help out with translations!
 
 ## License
 This application is released under GPL v3.0 or later.
+Information, icons and pictures are released under a Creative Commons BY-NC-SA v3.0 license, unless otherwise stated.
+The mobile home symbol in the app icon is Public Domain by US National Park Service and downloaded from The Noun Project.
+The GPS map icon is downloaded from Android Design and released under a Creative Commons BY v2.5 license.
 
 ## Permissions
 The following permission is used in the application:
