@@ -145,8 +145,6 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	// Manage places
     	Cursor cursor = getEvents();
 
-    	// TODO: Make dynamic no of GeoPoints?
-//    	int nbrOfPoints = 600;
     	int nbrOfPoints = cursor.getCount();
 		GeoPoint[] splCoords = new GeoPoint[nbrOfPoints];
 
@@ -286,7 +284,6 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
      *
      * @return cursor
      */
-    // TODO: Move to DBmanager class
     private Cursor getEvents() {
 		double tmpMinLat;
     	double tmpMaxLat;
@@ -294,7 +291,6 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	double tmpMaxLon;
 
     	// Make an square area around current position
-    	// TODO: When starting the first time currentPoint is null... Why?
     	if(currentPoint!=null){
     		tmpMinLat = (currentPoint.getLatitudeE6()-650000)/1e6;
         	tmpMaxLat = (currentPoint.getLatitudeE6()+650000)/1e6;
