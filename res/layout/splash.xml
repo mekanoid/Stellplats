@@ -36,6 +36,7 @@
     	android:layout_height="wrap_content"
     	android:layout_width="wrap_content"
     	android:src="@drawable/ic_launcher_stellplats"
+    	android:contentDescription="@string/stellplats"
     	android:layout_gravity="center_horizontal"
     	android:layout_marginTop="30dp">
     </ImageView>
@@ -67,7 +68,7 @@
     </LinearLayout>
 
 	<!-- License information -->
-    <LinearLayout android:id="@+id/linearLayout1"
+    <LinearLayout android:id="@+id/linearLayout2"
     	android:layout_width="fill_parent" 
     	android:gravity="center_horizontal"
         android:layout_height="wrap_content"

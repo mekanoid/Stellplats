@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- Application general labels -->
+	<string name="app_version">1.2.0</string>
 	<string name="app_author">Campingwebben</string>
+	<string name="app_license_text">CC-BY-SA</string>
+	<string name="app_license_source">GPL</string>
     <string name="app_name">Ställplats</string>
 
 	<!-- Splash screen labels -->
@@ -9,6 +12,9 @@
 	<string name="splash_version">Version</string>
 	<string name="splash_and">och</string>
 
+	<!-- List view labels -->
+	<string name="list_img_alt">Visa detaljer</string>
+	
 	<!-- Details screen labels -->
 	<string name="tabs_tabname_facts">Fakta</string>
 	<string name="tabs_tabname_map">Karta</string>
@@ -27,14 +33,38 @@
 	<string name="details_label_fee">Avgift</string>
 	<string name="details_label_descr">Beskrivning</string>
 	<string name="details_label_other">Övrigt</string>
+	<string name="details_img_alt">Status</string>
+
+	<!-- GPS map screen labels -->
+	<string name="gmap_msg_gpsNotActive">GPS ej aktiverad</string>
+	<string name="gmap_msg_noLocation">Position ännu ej tillgänglig</string>
+	<string name="gmap_msg_currentTitle">Aktuell position</string>
+	<string name="gmap_msg_currentText">Här befinner du dig nu!</string>
+	<string name="gmap_msg_gpsDisabled">GPS avstängd</string>
+	<string name="gmap_msg_gpsEnabled">GPS igångsatt</string>
+	<string name="gmap_msg_statusChanged">Status ändrades</string>
+
+	<string name="gmap_ballon_layby">rastplats</string>
+	<string name="gmap_ballon_pitch">ställplats</string>
+	<string name="gmap_ballon_winterOpen">vinteröppet</string>
+	<string name="gmap_ballon_winterClosed">vinterstängt</string>
+	<string name="gmap_ballon_caravan">plats för husvagn</string>
+	<string name="gmap_ballon_noCaravan">ej husvagnar</string>
+	<string name="gmap_ballon_toilet">toalett</string>
+	<string name="gmap_ballon_water">vatten</string>
+	<string name="gmap_ballon_shower">dusch</string>
+	<string name="gmap_ballon_waste">latrin</string>
+	<string name="gmap_ballon_electric">el</string>
+	<string name="gmap_ballon_missing">Saknar</string>
+	<string name="gmap_ballon_service">Service</string>
 
 	<!-- About dialog labels -->
 	<string name="about_label_about">Om</string>
 	<string name="about_label_version">Version:</string>
-	<string name="about_label_text00">Programmet är skapat 2011 av Peter Kindström, Campingwebben.</string>
+	<string name="about_label_text00">Programmet är skapat 2011–2012 av Peter Kindström, Campingwebben.</string>
 	<string name="about_label_head01">Tack till</string>
 	<string name="about_label_text01a">Alla som bidrar med ställplatsfakta</string>
-	<string name="about_label_text01b">Noun för symbol till programikonen</string>
+	<string name="about_label_text01b">Noun för programikonen (PD)</string>
 	<string name="about_label_text01c">Chris Haseman för splashscreen-kod</string>
 	<string name="about_label_head02">Licens</string>
 	<string name="about_label_text02a">Programmet är släppt under GPL v3.0 eller senare.</string>
@@ -42,14 +72,14 @@
 
 	<!-- Menu labels -->
     <string name="list_menu_itemChoose_label">Välj län</string>
-	<string name="list_menu_itemAbout_label">Om</string>
+    <string name="list_menu_itemMap_label">GPS-karta</string>
+    <string name="list_menu_itemAbout_label">Om</string>
 
 	<!-- Choose region dialog heading -->
 	<string name="dialog_region">Välj län</string>
 
 	<!-- Misc labels -->
     <string name="stellplats">Ställplats</string>
-    <string name="stellplatser">Ställplatser</string>
     <string name="sweden">Sverige</string>
 
 	<!-- Names of regions -->

@@ -8,16 +8,19 @@
 	<!-- Without titlebar ! -->
 
 	<!-- Name -->
-    <TextView android:id="@+id/details_label_name"
-    	android:layout_alignParentLeft="true"
-    	android:layout_height="wrap_content"
-    	android:text="details_label_name"
-    	android:layout_width="fill_parent"
-    	android:textSize="18sp"
-    	android:textStyle="bold"
-		android:layout_marginTop="4dp"
-		android:layout_marginRight="4dp"
-		android:layout_marginLeft="5dp">
+
+    <TextView
+        android:id="@+id/details_label_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:text="details_label_name"
+        android:textSize="18sp"
+        android:textStyle="bold" >
+
     </TextView>
 
     <!-- Where -->
@@ -70,12 +73,13 @@
 		android:text="@string/details_label_facts">
 	</TextView>
 	<!-- Caravans welcome or not -->
-	<LinearLayout android:id="@+id/linearLayout1" 
+	<LinearLayout android:id="@+id/linearLayout2" 
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content"
 		android:layout_marginTop="5sp">
 		<ImageView android:id="@+id/details_image_caravan"
 			android:src="@drawable/ic_spl_button_unknown" 
+		    android:contentDescription="@string/details_img_alt"
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="5sp"
@@ -91,12 +95,13 @@
 		</TextView>
 	</LinearLayout>
 	<!-- Open at winter / long stay or short stay -->
-	<LinearLayout android:id="@+id/linearLayout1" 
+	<LinearLayout android:id="@+id/linearLayout3" 
 		android:layout_width="fill_parent" 
 		android:layout_height="wrap_content"
 		android:layout_marginTop="5sp">
 		<ImageView android:id="@+id/details_image_winter"
 			android:src="@drawable/ic_spl_button_unknown" 
+		    android:contentDescription="@string/details_img_alt"
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="5sp"
@@ -110,12 +115,16 @@
 			android:layout_marginTop="3sp" 
 			android:layout_marginLeft="5sp">
 		</TextView>
-		<ImageView android:id="@+id/details_image_stay"
-			android:src="@drawable/ic_spl_button_unknown" 
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="25sp"
-			android:layout_marginTop="2sp">
+
+		<ImageView
+		    android:id="@+id/details_image_stay"
+		    android:contentDescription="@string/details_img_alt"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="25sp"
+		    android:layout_marginTop="2sp"
+		    android:src="@drawable/ic_spl_button_unknown" >
+
 		</ImageView>
 		<TextView android:id="@+id/details_label_stay"
 			android:layout_width="wrap_content" 
@@ -150,6 +159,7 @@
 			<!-- Toilet -->
 			<ImageView android:id="@+id/details_image_toilet"
 				android:src="@drawable/ic_spl_button_unknown" 
+			    android:contentDescription="@string/details_img_alt"
 				android:layout_width="wrap_content" 
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="5sp">
@@ -165,6 +175,7 @@
 			<!-- Shower -->
 			<ImageView android:id="@+id/details_image_shower"
 				android:src="@drawable/ic_spl_button_unknown" 
+			    android:contentDescription="@string/details_img_alt"
 				android:layout_width="wrap_content" 
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="25sp">
@@ -180,6 +191,7 @@
 			<!-- Electricity -->
 			<ImageView android:id="@+id/details_image_electric"
 				android:src="@drawable/ic_spl_button_unknown" 
+			    android:contentDescription="@string/details_img_alt"
 				android:layout_width="wrap_content" 
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="25sp">
@@ -200,6 +212,7 @@
 			<!-- Water -->
 			<ImageView android:id="@+id/details_image_water"
 				android:src="@drawable/ic_spl_button_unknown" 
+			    android:contentDescription="@string/details_img_alt"
 				android:layout_width="wrap_content" 
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="5sp">
@@ -215,6 +228,7 @@
 			<!-- Waste -->
 			<ImageView android:id="@+id/details_image_waste"
 				android:src="@drawable/ic_spl_button_unknown" 
+			    android:contentDescription="@string/details_img_alt"
 				android:layout_width="wrap_content" 
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="25sp">
@@ -230,6 +244,7 @@
 			<!-- Fee -->
 			<ImageView android:id="@+id/details_image_fee"
 				android:src="@drawable/ic_spl_button_unknown" 
+			    android:contentDescription="@string/details_img_alt"
 				android:layout_width="wrap_content" 
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="25sp">
@@ -246,7 +261,7 @@
 	</TableLayout>
 
 	<!-- Heading: Description -->
-	<TextView android:id="@+id/textView1" 
+	<TextView android:id="@+id/textView2" 
 		android:textAppearance="?android:attr/textAppearanceSmall" 
 		android:layout_height="wrap_content" 
 		android:layout_width="fill_parent" 
@@ -267,7 +282,7 @@
 	</TextView>
 
 	<!-- Heading: Other -->
-	<TextView android:id="@+id/textView1" 
+	<TextView android:id="@+id/textView3" 
 		android:textAppearance="?android:attr/textAppearanceSmall" 
 		android:layout_height="wrap_content" 
 		android:layout_width="fill_parent" 

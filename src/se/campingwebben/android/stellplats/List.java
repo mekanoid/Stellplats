@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.BaseColumns;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.style.URLSpan;
 import android.text.util.Linkify;
@@ -80,7 +81,6 @@ public class List extends Activity {
         	} 
         });
 
-        
 		// Create a new instance of the DBmanger class
         myDbHelper = new DBmanager(this);
  
@@ -181,6 +181,7 @@ public class List extends Activity {
 		final String CHOOSEN_REGION = "0";
 
 		switch (item.getItemId()) {
+			// Click on the Choose region item
 	        case R.id.list_menu_itemChoose:
 
 	    		// Create a new instance of the DBmanger class
@@ -229,6 +230,32 @@ public class List extends Activity {
 	            alert.show();
 	    		
 	            break;
+
+            // Click on the Map item
+	        case R.id.list_menu_itemMap:
+
+	        	// Get the settings for GPS
+	        	String GpsProvider = Settings.Secure.getString(getContentResolver(),
+	        			Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+
+	        	// Only show map if GPS is activated
+	        	if (GpsProvider.toLowerCase().indexOf("gps") >= 0 ) {
+		        	// Prepare to open the Sync Activity/View
+		        	Intent myIntent = new Intent(this, GpsMapActivity.class);
+
+		        	// Send some values to the new Activity (must be String!)
+		        	// String idTemp = Long.toString(id);
+		        	// myIntent.putExtra("id", idTemp);
+
+		        	// Open the new Activity (and don't expect any response)
+		        	startActivity(myIntent);
+	        	} else {
+	            	Toast.makeText(this, getString(R.string.gmap_msg_gpsNotActive), Toast.LENGTH_LONG).show();
+	        	}
+	        			
+	        	break;
+
+	        // Click on the About item
 	        case R.id.list_menu_itemAbout:
 	        	AlertDialog about;
 	        	try {
