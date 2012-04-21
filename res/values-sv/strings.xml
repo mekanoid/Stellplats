@@ -14,10 +14,12 @@
 
 	<!-- List view labels -->
 	<string name="list_img_alt">Visa detaljer</string>
-	
+	<string name="list_txt_pitches">Pitches in</string>
+		
 	<!-- Details screen labels -->
 	<string name="tabs_tabname_facts">Fakta</string>
 	<string name="tabs_tabname_map">Karta</string>
+	<string name="details_actionbar_text">Platsinformation</string>
 	<string name="details_label_facts">Fakta</string>
 	<string name="details_label_caravan">Husvagnar är välkomna och/eller får plats</string>
 	<string name="details_label_winter">Vinteröppet</string>

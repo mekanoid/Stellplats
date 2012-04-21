@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-public class DBmanager extends SQLiteOpenHelper {
+public class DataManager extends SQLiteOpenHelper {
 	 
 	    // The Android's default system path of your application database
 	    private static String DB_PATH = "/data/data/se.campingwebben.android.stellplats/databases/";
@@ -31,7 +31,7 @@ public class DBmanager extends SQLiteOpenHelper {
 	     * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
 	     * @param context
 	     */
-	    public DBmanager(Context context) {
+	    public DataManager(Context context) {
 	    	super(context, DB_NAME, null, 1);
 	        this.myContext = context;
 	    }	

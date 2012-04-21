@@ -1,23 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:layout_width="fill_parent" 
-    android:layout_height="fill_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	>
 
-	<!-- Show the map -->
-	<com.google.android.maps.MapView 
+    <!-- Show the map -->
+    <com.google.android.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:clickable="true"
-		android:apiKey="0kpDQZo6UvL6PgWXSt8ztA_iImqqVmH9qyiLeSA"
-    />
-	
-	<!-- Show zoom buttons -->
-	<LinearLayout android:id="@+id/zoom" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_alignParentBottom="true" 
-        android:layout_centerHorizontal="true" 
-    />
- 
+        android:apiKey="0kpDQZo6UvL6PgWXSt8ztA_iImqqVmH9qyiLeSA"
+        android:clickable="true" />
+
+	<!-- Custom titlebar -->
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_red" >
+
+		<ImageView
+			android:id="@+id/actionBack"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="8dp"
+			android:src="@drawable/ic_menu_back" />
+
+        <ImageView
+            android:id="@+id/actionIcon01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:clickable="true"
+            android:contentDescription="ActionBar icon"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_map_location" />
+
+        <ImageView
+            android:id="@+id/actionIcon02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/actionIcon01"
+            android:clickable="true"
+            android:contentDescription="ActionBar icon"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_map_location" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/actionBack"
+            android:gravity="left"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/actionbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="5dp"
+                android:paddingTop="0dp"
+                android:text="@string/stellplats"
+                android:textAppearance="@style/ActionBarTitle" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingBottom="3dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="5dp"
+                android:paddingTop="0dp"
+                android:text="@string/stellplats"
+                android:textAppearance="@style/ActionBarText" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+      <LinearLayout android:id="@+id/layout_zoom" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:layout_alignParentBottom="true" 
+    android:layout_centerHorizontal="true" 
+  />
 </RelativeLayout>

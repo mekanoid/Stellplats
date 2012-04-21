@@ -34,7 +34,7 @@ public class TabsActivity extends TabActivity{
 		TabSpec secondTabSpec = tabHost.newTabSpec("tid1");
 
 		// Prepare the list Activity and send some values to it (must be String!)
-		Intent listIntent = new Intent(this,Details.class);      	        
+		Intent listIntent = new Intent(this,DetailsActivity.class);      	        
 		listIntent.putExtra("id", id);
 
 		// Prepare the map Activity and send some values to it (must be String!)

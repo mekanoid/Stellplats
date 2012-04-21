@@ -53,8 +53,8 @@ public class MapsActivity extends MapActivity {
 		}
 
 		// Create a new instance of the DBmanger class
-		DBmanager myDbHelper = new DBmanager(null);
-        myDbHelper = new DBmanager(this);
+		DataManager myDbHelper = new DataManager(null);
+        myDbHelper = new DataManager(this);
 
         // Open the database and make a query
         database = myDbHelper.getReadableDatabase();

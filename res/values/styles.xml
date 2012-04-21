@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TextAppearanceBold">
+
+    <!-- Default theme for all activities -->
+    <style name="SplTheme" parent="@android:style/Theme">
+    	<item name="android:windowContentOverlay">@null</item>
+    	<item name="android:windowNoTitle">true</item>
+	</style>
+    
+    <!-- Action bar title -->
+    <style name="ActionBarTitle" parent="@android:style/TextAppearance">
     	<item name="android:textStyle">bold</item>
-    </style>
+    	<item name="android:textSize">20dp</item>
+    	<item name="android:textColor">#F0F0F0</item>
+    	<item name="android:shadowColor">#333333</item>
+    	<item name="android:shadowRadius">5</item>
+   	</style>
+
+    <!-- Action bar text -->
+    <style name="ActionBarText" parent="@android:style/TextAppearance">
+    	<item name="android:textSize">12dp</item>
+    	<item name="android:textColor">#FFFFFF</item>
+   	</style>
+
 </resources>

@@ -31,7 +31,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	// private static final String TAG = "GpsMap";
 
 	// Database variables
-	DBmanager myDbHelper = new DBmanager(this);
+	DataManager myDbHelper = new DataManager(this);
 	private static final String fields[] = { "namn", "wgs84_lat", "wgs84_long", "beskrivning", "typ", "vinter", "plats_husvagn",
 		"service_toalett", "service_vatten", "service_dusch", "service_latrin",
 		"avgift", "plats_el", BaseColumns._ID };

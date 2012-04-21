@@ -18,10 +18,13 @@
 
 	<!-- List view labels -->
 	<string name="list_img_alt">Show details</string>
+	<string name="list_txt_pitches">Pitches in</string>
+		
 	
 	<!-- Details screen labels -->
 	<string name="tabs_tabname_facts">Facts</string>
 	<string name="tabs_tabname_map">Map</string>
+	<string name="details_actionbar_text">Pitch information</string>
 	<string name="details_label_facts">Facts</string>
 	<string name="details_label_caravan">Welcoming / enough place for caravans</string>
 	<string name="details_label_winter">Winter open</string>

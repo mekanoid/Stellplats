@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.provider.Settings;
@@ -20,7 +21,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -28,14 +32,14 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SimpleCursorAdapter.ViewBinder;
 
-public class List extends Activity {
+public class RegionListActivity extends Activity {
 
 	/**
 	 *  Constants
 	 */
 	// For the database
 	SQLiteDatabase splDatabase;
-	DBmanager myDbHelper;
+	DataManager myDbHelper;
 
 	// For the list view
 	SimpleCursorAdapter splAdapter;
@@ -56,7 +60,9 @@ public class List extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
         String select;
 		String regionName;
-
+		ImageView iconAbout = null;
+		ImageView iconFilter = null;
+		
         super.onCreate(savedInstanceState);
 
         // Set the layout for this Activity
@@ -65,12 +71,87 @@ public class List extends Activity {
         // Get a reference to the list we are going to work with
         ListView listRegion = (ListView) findViewById(R.id.listRegion);
 
+		// Get reference to the action bar title and set title text
+        // TODO Mayby not needed?
+        //		TextView actionbarTitle = new TextView(this); 
+//        actionbarTitle = (TextView)findViewById(R.id.actionbarTitle); 
+        
+		// Get reference to the action bar text
+		TextView actionbarText = new TextView(this); 
+        actionbarText = (TextView)findViewById(R.id.titleText); 
+
+       	// Get reference to the icons
+        iconAbout = (ImageView)findViewById(R.id.actionIcon01);
+        iconFilter = (ImageView)findViewById(R.id.actionIcon02);
+
+        // Execute when Filter icon is clicked
+        iconFilter.setOnClickListener(new OnClickListener(){
+        	public void onClick(View view) {
+	        	// Choose which item to check in dialog box (none at the moment)
+	        	int itemToCheck = -1;
+
+	        	// Load the SharedPreferences object and get last selected region
+	        	prefs = getSharedPreferences(prefName, MODE_PRIVATE);
+	            itemToCheck = prefs.getInt(CHOOSEN_REGION, -1);
+	            
+	            // Prepare the list dialog box
+	            AlertDialog.Builder builder = new AlertDialog.Builder(RegionListActivity.this);
+
+	            // Set its title (from strings.xml)
+	            builder.setTitle(R.string.dialog_region);
+	            
+	            // Set the list items (with array from strings.xml)
+	            // and assign with the click listener
+	            builder.setSingleChoiceItems(R.array.region, itemToCheck, new DialogInterface.OnClickListener() {
+
+	            	// Click listener
+	            	public void onClick(DialogInterface dialog, int choosenItem) {
+	            		// Update the list view
+	            		regionListUpdate(choosenItem);
+
+	            		// Get the SharedPreferences object
+	                    SharedPreferences.Editor editor = prefs.edit();
+
+	                    // Insert the choosen region number to preferences
+	                    editor.putInt(CHOOSEN_REGION, choosenItem);
+
+	                    // Saves the preferences
+	                    editor.commit();
+
+	            		// Close the dialog box
+	            		dialog.dismiss();
+	            	}
+
+	            });
+ 
+	            // Create dialog box
+	            AlertDialog alert = builder.create();
+
+	            // Display dialog box
+	            alert.show();        	}
+        });
+
+        // Execute when About icon is clicked
+        iconAbout.setOnClickListener(new OnClickListener(){
+        	public void onClick(View view) {
+	        	AlertDialog about;
+	        	try {
+	        	    about = AboutDialogBuilder.create(RegionListActivity.this);
+	        	    about.show();
+	        	} catch (NameNotFoundException e) {
+	        	    // Auto-generated catch block
+	        	    e.printStackTrace();
+	        	}
+        	}
+        });
+        
         // Listen for click on items and start a new Activity when clicked
         listRegion.setOnItemClickListener(new OnItemClickListener() {
         	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
         		// Prepare to open the Details Activity/View
-        		Intent myIntent = new Intent(view.getContext(), TabsActivity.class);      	        
+//        		Intent myIntent = new Intent(view.getContext(), TabsActivity.class);      	        
+        		Intent myIntent = new Intent(view.getContext(), DetailsActivity.class);      	        
 
         		// Send some values to the new Activity (must be String!)
         		String idTemp = Long.toString(id);
@@ -81,8 +162,12 @@ public class List extends Activity {
         	} 
         });
 
-		// Create a new instance of the DBmanger class
-        myDbHelper = new DBmanager(this);
+        // Load the SharedPreferences object and get last selected region
+        prefs = getSharedPreferences(prefName, MODE_PRIVATE);
+       	regionNo = prefs.getInt(CHOOSEN_REGION, 0);
+
+       	// Create a new instance of the DBmanger class
+        myDbHelper = new DataManager(this);
  
         // Create a new database if no database exist
         try {
@@ -91,14 +176,6 @@ public class List extends Activity {
         	throw new Error("Unable to create database");
         }
 
-		// Get reference to the title bar text
-		TextView title = new TextView(this); 
-        title = (TextView)findViewById(R.id.titleText); 
-
-        // Load the SharedPreferences object and get last selected region
-        prefs = getSharedPreferences(prefName, MODE_PRIVATE);
-       	regionNo = prefs.getInt(CHOOSEN_REGION, 0);
-
 		// Get the name of the region from strings.xml
 		String[] items = getResources().getStringArray(R.array.region);
 		regionName = items[regionNo];
@@ -106,13 +183,13 @@ public class List extends Activity {
 		// Special if "all" regions are chosen
         if (regionNo == 0) {
 			// Set a new window title
-			title.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
+			actionbarText.setText(this.getString(R.string.list_txt_pitches) + " " + this.getString(R.string.sweden));
 
         // Update the cursor with new data from database
 			select = "aktiv='1'";
         } else {
 			// Set a new window title
-			title.setText(this.getString(R.string.stellplats) + " " + regionName);
+			actionbarText.setText(this.getString(R.string.list_txt_pitches) + " " + regionName);
 	        
 			// Make SQL WHERE clause
 			select = "region='" + regionNo + "' AND aktiv='1'";
@@ -160,6 +237,17 @@ public class List extends Activity {
         listRegion.setAdapter(splAdapter);
 
 	}
+	
+	/**
+	 * To get smoother dithering in Action Bar
+	 */
+	@Override
+	public void onAttachedToWindow() {
+	    super.onAttachedToWindow();
+	    Window window = getWindow();
+	    window.setFormat(PixelFormat.RGBA_8888);
+	}
+	
 	
 	/**
 	 * Create a menu (from res/menu/menu_list.xml)
@@ -279,8 +367,8 @@ public class List extends Activity {
 		Cursor splCursor;
 
 		// Get reference to the title bar text
-		TextView txt = new TextView(this); 
-        txt = (TextView)findViewById(R.id.titleText); 
+		TextView actionbarText = new TextView(this); 
+		actionbarText = (TextView)findViewById(R.id.titleText); 
         
 		// Get a reference to the list we are going to work with
         ListView listRegion = (ListView) findViewById(R.id.listRegion);
@@ -298,13 +386,13 @@ public class List extends Activity {
         // Special if "all" regions are chosen
         if (regionNo == 0) {
 			// Set a new window title
-			txt.setText(this.getString(R.string.app_name) + " " + this.getString(R.string.sweden));
+			actionbarText.setText(this.getString(R.string.list_txt_pitches) + " " + this.getString(R.string.sweden));
 
         // Update the cursor with new data from database
 			select = "aktiv='1'";
         } else {
 			// Set a new window title
-			txt.setText(this.getString(R.string.stellplats) + " " + regionName);
+			actionbarText.setText(this.getString(R.string.list_txt_pitches) + " " + regionName);
 
 			// Make SQL WHERE clause
 			select = "region='" + regionNo + "' AND aktiv='1'";

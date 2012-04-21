@@ -29,10 +29,11 @@
 
 		<!-- View list of pitches -->
         <activity
-        	android:name=".List"
+        	android:name=".RegionListActivity"
         	android:label="@string/app_name"
-			android:theme="@android:style/Theme.NoTitleBar">
-           	<intent-filter>
+			android:theme="@style/SplTheme"
+			>
+            	<intent-filter>
 				<action android:name="se.campingwebben.android.stellplats.CLEARSPLASH"/>
 				<category android:name="android.intent.category.DEFAULT"/>
 			</intent-filter>
@@ -44,8 +45,9 @@
 			android:theme="@android:style/Theme.NoTitleBar">
         </activity>
         <activity
-        	android:name=".Details"
-			android:theme="@android:style/Theme.NoTitleBar">
+        	android:name=".DetailsActivity"
+			android:theme="@style/SplTheme"
+			>
         </activity>
         <activity
         	android:name=".MapsActivity"

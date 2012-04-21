@@ -12,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Details extends Activity{
+public class DetailsActivity extends Activity{
 
 	// SQL variables
 	private SQLiteDatabase database;
@@ -31,8 +31,8 @@ public class Details extends Activity{
 	private String region;
 	private String description;
 	private String updated;
-	private String wgs84_lat;
-	private String wgs84_long;
+	String wgs84_lat;
+	String wgs84_long;
 	// Facts
 	private Integer caravan;
 	private Integer winter;
@@ -58,9 +58,27 @@ public class Details extends Activity{
 			where = "_id='" + id + "'";				// Don't forget the '' even if its a number!
 		}
 
+		// Get reference to the action bar title and set title text
+//		TextView actionbarTitle = new TextView(this); 
+//        actionbarTitle = (TextView)findViewById(R.id.actionbarTitle); 
+//        actionbarTitle.setText(this.getString(R.string.stellplats));
+        
+		// Get reference to the action bar text
+		TextView actionbarText = new TextView(this); 
+        actionbarText = (TextView)findViewById(R.id.titleText); 
+//        actionbarText.setText(this.getString(R.string.details_actionbar_text));
+
+       	// Get reference to the icons
+        ImageView iconMap = (ImageView)findViewById(R.id.actionIcon01);
+        ImageView iconNavigate = (ImageView)findViewById(R.id.actionIcon02);
+
+        // Call private method gpsListener
+        iconMap.setOnClickListener(mapListener);
+        iconNavigate.setOnClickListener(navigateListener);
+
 		// Create a new instance of the DBmanger class
-		DBmanager myDbHelper = new DBmanager(null);
-        myDbHelper = new DBmanager(this);
+		DataManager myDbHelper = new DataManager(null);
+        myDbHelper = new DataManager(this);
 
         // Open the database and make a query
         database = myDbHelper.getReadableDatabase();
@@ -107,21 +125,25 @@ public class Details extends Activity{
 		// Close database
 		database.close();
 
+        actionbarText.setText(name);
 		/**
 		 *  Basic information
 		 */
 		// Name
 		TextView txt = new TextView(this); 
-        txt = (TextView)findViewById(R.id.details_label_name); 
-        txt.setText(name);
+//        txt = (TextView)findViewById(R.id.details_label_name); 
+        //txt.setText(name);
+        txt.setText("");
 
         // Place (town, village etc)
-        txt = (TextView)findViewById(R.id.details_label_place); 
-        txt.setText(place);
+//        txt = (TextView)findViewById(R.id.details_label_place); 
+//        txt.setText(place);
+        txt.setText("");
 
         // Region
-        txt = (TextView)findViewById(R.id.details_label_region); 
-        txt.setText(region);
+// TODO        txt = (TextView)findViewById(R.id.details_label_region); 
+//        txt.setText(region);
+        txt.setText("");
 
         /**
          *  Facts
@@ -231,12 +253,12 @@ public class Details extends Activity{
     	TextView gps = new TextView(this);
     	gps = (TextView)findViewById(R.id.text_wgs84); 
         gps.setText(wgs84);
-        gps.setOnClickListener(gpsListener);
+        gps.setOnClickListener(navigateListener);
 	}
 
-	// Create an anonymous implementation of OnClickListener
-	private OnClickListener gpsListener = new OnClickListener() {
-		public void onClick(View v) {
+	// Create an OnClickListener for the navigate icon
+	private OnClickListener navigateListener = new OnClickListener() {
+		public void onClick(View view) {
 			// Go to external navigation software when the text is clicked
 			Intent intent = new Intent(android.content.Intent.ACTION_VIEW, 
 					Uri.parse("google.navigation:q="+wgs84_lat+","+wgs84_long));
@@ -244,4 +266,19 @@ public class Details extends Activity{
 	    }
 	};
 
+	// Create an OnClickListener for the map icon
+	private OnClickListener mapListener = new OnClickListener() {
+		public void onClick(View view) {
+    		// Prepare to open the Details Activity/View
+//    		Intent myIntent = new Intent(view.getContext(), TabsActivity.class);      	        
+    		Intent myIntent = new Intent(view.getContext(), GpsMapActivity.class);      	        
+
+    		// Send some values to the new Activity (must be String!)
+    		myIntent.putExtra("lat", wgs84_lat);
+    		myIntent.putExtra("lon", wgs84_long);
+
+    		// Open the new Activity (and don't expect any response)
+    		startActivity(myIntent);
+	    }
+	};
 }
