@@ -43,6 +43,8 @@
 	<string name="details_img_alt">Status</string>
 	
 	<!-- GPS map screen labels -->
+	<string name="gmap_txt_actionbar">Show pitch on map</string>
+	
 	<string name="gmap_msg_gpsNotActive">GPS not activated</string>
 	<string name="gmap_msg_noLocation">Location not yet acquired</string>
 	<string name="gmap_msg_currentTitle">Current position</string>

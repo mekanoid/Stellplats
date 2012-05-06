@@ -17,6 +17,7 @@ import com.readystatesoftware.mapviewballoons.BalloonItemizedOverlay;
 public class OverlayManager extends BalloonItemizedOverlay<OverlayItem> {
 
 	private Context mContext;
+	// TODO Change "mall" to "pitch" sometime...
 	private ArrayList<OverlayItem> malls = new ArrayList<OverlayItem>();
 	private Location currentLocation;
 

@@ -26,8 +26,8 @@
             android:layout_alignParentTop="true"
             android:clickable="true"
             android:contentDescription="ActionBar icon"
-            android:paddingTop="0dp"
-            android:src="@drawable/ic_menu_gps" />
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_listview_marker" />
 
         <ImageView
             android:id="@+id/actionIcon02"
@@ -37,8 +37,8 @@
             android:layout_toLeftOf="@+id/actionIcon01"
             android:clickable="true"
             android:contentDescription="ActionBar icon"
-            android:paddingTop="8dp"
-            android:src="@drawable/ic_listview_marker" />
+            android:paddingTop="0dp"
+            android:src="@drawable/ic_menu_gps" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"

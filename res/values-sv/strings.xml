@@ -38,6 +38,8 @@
 	<string name="details_img_alt">Status</string>
 
 	<!-- GPS map screen labels -->
+	<string name="gmap_txt_actionbar">Visa på karta</string>
+	
 	<string name="gmap_msg_gpsNotActive">GPS ej aktiverad</string>
 	<string name="gmap_msg_noLocation">Position ännu ej tillgänglig</string>
 	<string name="gmap_msg_currentTitle">Aktuell position</string>

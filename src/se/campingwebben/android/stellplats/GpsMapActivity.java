@@ -8,6 +8,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
@@ -15,8 +16,13 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class GpsMapActivity extends MapActivity implements LocationListener{
@@ -26,6 +32,8 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	private GeoPoint currentPoint;
 	private Location currentLocation = null;
 	private OverlayManager currPos;
+	private String wgs84_lat;
+	private String wgs84_long;
 
 	// For debugging
 	// private static final String TAG = "GpsMap";
@@ -38,22 +46,65 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	private static final String order = "namn ASC";
 
     @Override
-    /** Called when the activity is first created. */
+    /**
+     *  Called when the activity is first created
+     */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map);
+
+		// Get parameters from the Activity before
+		Bundle extras = getIntent().getExtras();
+		if(extras !=null) {
+			// Get latitude and longitude of the pitch to display
+			wgs84_lat = extras.getString("lat");
+			wgs84_long = extras.getString("lon");
+//			String splTxt = extras.getString("name");
+			float lat = Float.parseFloat(wgs84_lat);
+			float lon = Float.parseFloat(wgs84_long);
+	        final GeoPoint currentPoint = new GeoPoint(
+	        		(int) (lat * 1E6), 
+	                (int) (lon * 1E6));
+
+	    	// Set a fix location for demo purposes
+	        currentLocation = new Location("");
+	        currentLocation.setLatitude(currentPoint.getLatitudeE6() / 1e6);
+	        currentLocation.setLongitude(currentPoint.getLongitudeE6() / 1e6);
+		}
+
+		// Get reference to the action bar text
+		TextView actionbarText = new TextView(this); 
+        actionbarText = (TextView)findViewById(R.id.titleText); 
+		//        actionbarText.setText(this.getString(R.string.gmap_txt_actionbar));
+        actionbarText.setText(extras.getString("name"));
+
+       	// Get reference to the icons
+        ImageView iconBack = (ImageView)findViewById(R.id.actionBack);
+        ImageView iconLocate = (ImageView)findViewById(R.id.actionIcon02);
+        ImageView iconNavigate= (ImageView)findViewById(R.id.actionIcon01);
+
+        // TODO Do things with icons
+        iconNavigate.setOnClickListener(navigateListener);
+        iconLocate.setVisibility(View.GONE);
+//        iconLocate.setOnClickListener(locateListener);
+        iconBack.setOnClickListener(backListener);
+
+        // Set up the map
         mapView = (MapView)findViewById(R.id.mapView);
         mapView.setBuiltInZoomControls(true);
         mapView.setSatellite(false);
         mapView.setStreetView(true);
         mapController = mapView.getController();
         mapController.setZoom(12);
-        getLastLocation();
-        drawCurrPositionOverlay();
-        animateToCurrentLocation();
-        drawPitches();
 
-        // Toast.makeText(this, "Click on the displayed coordinates to center map around your current location", Toast.LENGTH_LONG).show();
+        // Move map to pitch position
+    	setCurrentLocation(currentLocation);
+    	animateToCurrentLocation();
+    	drawPitches();
+
+    	// TODO Make it possible to locate yourself
+    	// getLastLocation();
+//    	drawCurrPositionOverlay();
     }
 
     public void getLastLocation(){
@@ -107,8 +158,9 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	currentLocation = new Location("");
     	currentLocation.setLatitude(currentPoint.getLatitudeE6() / 1e6);
     	currentLocation.setLongitude(currentPoint.getLongitudeE6() / 1e6);
-    
-    	drawCurrPositionOverlay();
+
+    	// TODO Only call when using GPS 
+    	// drawCurrPositionOverlay();
     
     }
 
@@ -142,11 +194,10 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	List<Overlay> overlays = mapView.getOverlays();
     	OverlayItem overlayItem;
  
-    	// Manage places
-    	Cursor cursor = getEvents();
+    	// Get pitches from database
+    	Cursor cursor = getPitches();
 
-    	// TODO: Make dynamic no of GeoPoints?
-//    	int nbrOfPoints = 600;
+    	// Create dynamic no of GeoPoints
     	int nbrOfPoints = cursor.getCount();
 		GeoPoint[] splCoords = new GeoPoint[nbrOfPoints];
 
@@ -287,7 +338,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
      * @return cursor
      */
     // TODO: Move to DBmanager class
-    private Cursor getEvents() {
+    private Cursor getPitches() {
 		double tmpMinLat;
     	double tmpMaxLat;
     	double tmpMinLon;
@@ -335,6 +386,38 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	return cursor;
     }
 
+	/**
+	 *  Create an OnClickListener for the back icon
+	 */
+	private OnClickListener backListener = new OnClickListener() {
+		public void onClick(View view) {
+			// Close current Activity
+			finish();
+		}
+	};
+
+	/**
+	 *  Create an OnClickListener for the navigate icon
+	 */
+	private OnClickListener navigateListener = new OnClickListener() {
+		public void onClick(View view) {
+			// Go to external navigation software when the text is clicked
+			Intent intent = new Intent(android.content.Intent.ACTION_VIEW, 
+					Uri.parse("google.navigation:q="+wgs84_lat+","+wgs84_long));
+			startActivity(intent);
+	    }
+	};
+
+	/**
+	 *  Create an OnClickListener for the locate icon
+	 */
+	private OnClickListener locateListener = new OnClickListener() {
+		public void onClick(View view) {
+			// Change map view to current location
+			Toast.makeText(getApplicationContext(), "Moving to current location", Toast.LENGTH_SHORT);
+		}
+	};
+
     protected boolean isRouteDisplayed() {
     	return false;
     }
@@ -361,14 +444,14 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	@Override
     protected void onResume() {
     	super.onResume();
-    	locationManager.requestLocationUpdates(getBestProvider(), 1000, 1, this);
+//    	locationManager.requestLocationUpdates(getBestProvider(), 1000, 1, this);
     }
 
 	// When application looses focus
     @Override
     protected void onPause() {
     	super.onPause();
-    	locationManager.removeUpdates(this);
+//    	locationManager.removeUpdates(this);
     }
 
 }

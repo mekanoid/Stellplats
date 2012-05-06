@@ -41,23 +41,15 @@
 
 		<!-- View info about one single pitch -->
         <activity
-        	android:name=".TabsActivity"
-			android:theme="@android:style/Theme.NoTitleBar">
-        </activity>
-        <activity
         	android:name=".DetailsActivity"
 			android:theme="@style/SplTheme"
 			>
-        </activity>
-        <activity
-        	android:name=".MapsActivity"
-			android:theme="@android:style/Theme.NoTitleBar">
         </activity>
 
 		<!-- Show map with pitches -->
         <activity
             android:name=".GpsMapActivity"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@style/SplTheme">
 		</activity>
  
     </application>

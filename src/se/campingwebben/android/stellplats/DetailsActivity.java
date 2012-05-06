@@ -69,10 +69,12 @@ public class DetailsActivity extends Activity{
 //        actionbarText.setText(this.getString(R.string.details_actionbar_text));
 
        	// Get reference to the icons
-        ImageView iconMap = (ImageView)findViewById(R.id.actionIcon01);
-        ImageView iconNavigate = (ImageView)findViewById(R.id.actionIcon02);
+        ImageView iconBack = (ImageView)findViewById(R.id.actionBack);
+        ImageView iconMap = (ImageView)findViewById(R.id.actionIcon02);
+        ImageView iconNavigate = (ImageView)findViewById(R.id.actionIcon01);
 
         // Call private method gpsListener
+        iconBack.setOnClickListener(backListener);
         iconMap.setOnClickListener(mapListener);
         iconNavigate.setOnClickListener(navigateListener);
 
@@ -256,7 +258,19 @@ public class DetailsActivity extends Activity{
         gps.setOnClickListener(navigateListener);
 	}
 
-	// Create an OnClickListener for the navigate icon
+	/**
+	 *  Create an OnClickListener for the back icon
+	 */
+	private OnClickListener backListener = new OnClickListener() {
+		public void onClick(View view) {
+			// Change map view to current location
+			finish();
+		}
+	};
+
+	/**
+	 *  Create an OnClickListener for the navigate icon
+	 */
 	private OnClickListener navigateListener = new OnClickListener() {
 		public void onClick(View view) {
 			// Go to external navigation software when the text is clicked
@@ -266,7 +280,9 @@ public class DetailsActivity extends Activity{
 	    }
 	};
 
-	// Create an OnClickListener for the map icon
+	/**
+	 *  Create an OnClickListener for the map icon
+	 */
 	private OnClickListener mapListener = new OnClickListener() {
 		public void onClick(View view) {
     		// Prepare to open the Details Activity/View
@@ -276,6 +292,7 @@ public class DetailsActivity extends Activity{
     		// Send some values to the new Activity (must be String!)
     		myIntent.putExtra("lat", wgs84_lat);
     		myIntent.putExtra("lon", wgs84_long);
+    		myIntent.putExtra("name", name);
 
     		// Open the new Activity (and don't expect any response)
     		startActivity(myIntent);
