@@ -14,7 +14,7 @@
 
 	<!-- List view labels -->
 	<string name="list_img_alt">Visa detaljer</string>
-	<string name="list_txt_pitches">Pitches in</string>
+	<string name="list_txt_pitches">Ställplatser</string>
 		
 	<!-- Details screen labels -->
 	<string name="tabs_tabname_facts">Fakta</string>

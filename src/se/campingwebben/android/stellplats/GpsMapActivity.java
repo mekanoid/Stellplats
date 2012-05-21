@@ -19,6 +19,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -36,13 +37,20 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	private String wgs84_long;
 
 	// For debugging
-	// private static final String TAG = "GpsMap";
+	private static final String TAG = "GpsMap";
 
 	// Database variables
 	DataManager myDbHelper = new DataManager(this);
+
+	// TODO: Byt till "plats_vinter" & "plats_avgift"
+/*	private static final String fields[] = { "namn", "wgs84_lat", "wgs84_long", "beskrivning", "typ", "plats_vinter", "plats_husvagn",
+		"service_toalett", "service_vatten", "service_dusch", "service_latrin",
+		"plats_avgift", "plats_el", BaseColumns._ID };
+*/
 	private static final String fields[] = { "namn", "wgs84_lat", "wgs84_long", "beskrivning", "typ", "vinter", "plats_husvagn",
 		"service_toalett", "service_vatten", "service_dusch", "service_latrin",
 		"avgift", "plats_el", BaseColumns._ID };
+
 	private static final String order = "namn ASC";
 
     @Override
@@ -84,7 +92,8 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
         ImageView iconNavigate= (ImageView)findViewById(R.id.actionIcon01);
 
         // TODO Do things with icons
-        iconNavigate.setOnClickListener(navigateListener);
+        iconNavigate.setVisibility(View.GONE);
+//        iconNavigate.setOnClickListener(navigateListener);
         iconLocate.setVisibility(View.GONE);
 //        iconLocate.setOnClickListener(locateListener);
         iconBack.setOnClickListener(backListener);
@@ -104,7 +113,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 
     	// TODO Make it possible to locate yourself
     	// getLastLocation();
-//    	drawCurrPositionOverlay();
+    	// drawCurrPositionOverlay();
     }
 
     public void getLastLocation(){
@@ -198,12 +207,11 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	Cursor cursor = getPitches();
 
     	// Create dynamic no of GeoPoints
-    	int nbrOfPoints = cursor.getCount();
+    	int nbrOfPoints = cursor.getCount()+1;
 		GeoPoint[] splCoords = new GeoPoint[nbrOfPoints];
 
-		// Iterate through all places
-    	Integer no = 0;
-    	cursor.moveToFirst();
+		// Iterate through all places (there should be NO "cursor.moveToFirst()" before the "while")
+    	Integer no = 1;
     	while (cursor.moveToNext()) {
 
     		/**
@@ -211,6 +219,8 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     		 */
     		// Get the name
     		String name = cursor.getString(0);
+    		// TODO: Loggning av hittade namn
+    		Log.d(TAG, name);
 
     		// Get latitude
     		double latTmp = cursor.getDouble(1);

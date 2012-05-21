@@ -9,7 +9,7 @@
         android:id="@+id/mapView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:apiKey="0kpDQZo6UvL6PgWXSt8ztA_iImqqVmH9qyiLeSA"
+		android:apiKey="0kpDQZo6UvL7lkYKQKZFT_hVK_VHUn2W60Gu2NQ"
         android:clickable="true" />
 
 	<!-- Custom titlebar -->

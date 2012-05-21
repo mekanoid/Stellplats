@@ -16,6 +16,7 @@ public class DetailsActivity extends Activity{
 
 	// SQL variables
 	private SQLiteDatabase database;
+	// TODO: Byt till "plats_vinter" & "plats_avgift"
 	private static final String fields[] = {
 		"namn", "ort", "region", "beskrivning", "uppdaterad", "wgs84_lat", "wgs84_long",
 		"plats_husvagn", "vinter",  "typ", "service_toalett", "service_dusch",

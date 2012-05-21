@@ -1,4 +1,4 @@
-package se.campingwebben.android.stellplats;
+ package se.campingwebben.android.stellplats;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
 public class DataManager extends SQLiteOpenHelper {
@@ -18,12 +19,17 @@ public class DataManager extends SQLiteOpenHelper {
 	    private static String DB_PATH = "/data/data/se.campingwebben.android.stellplats/databases/";
 	    // The name of your application database
 	    private static String DB_NAME = "SplDB.sqlite";
-	    // The name of your application database
+	    // The version of your application database
+	    private static int DB_VERSION = 1;
+	    // The name of your database table
 //	    private static String TB_NAME = "platser";
-	    
+
 	    private SQLiteDatabase myDataBase; 
 	    private final Context myContext;
 	    public static final String KEY_CONTENT = "namn";
+
+		// For debugging
+		private static final String TAG = "DataMgr";
 
 
 	    /**
@@ -32,18 +38,18 @@ public class DataManager extends SQLiteOpenHelper {
 	     * @param context
 	     */
 	    public DataManager(Context context) {
-	    	super(context, DB_NAME, null, 1);
+	    	super(context, DB_NAME, null, DB_VERSION);
 	        this.myContext = context;
 	    }	
 	    
 	    /**
 	     * Creates a empty database on the system and rewrites it with your own database.
-	     * */
+	     * */ 
 	    public void createDataBase() throws IOException{
 	 
 	    	boolean dbExist = checkDataBase();
 	 
-	    	if(dbExist){
+			if(dbExist){
 	    		//do nothing - database already exist
 	    	}else{
 	 
@@ -113,6 +119,16 @@ public class DataManager extends SQLiteOpenHelper {
 	    }
 
 	    /**
+	     * This method is used to delete the old/current database
+	     * @param context
+	     * @return
+	     */
+//	    public boolean deleteDatabase(Context context) {
+//	        return context.deleteDatabase(DB_NAME);
+//	    }
+
+
+	    /**
 	     * Open database for read-only
 	     * @throws SQLException
 	     */
@@ -121,18 +137,18 @@ public class DataManager extends SQLiteOpenHelper {
 	    	myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 	    }
 
+	    
 	    /**
 	     * Close database
 	     */
 	    @Override
 	    public synchronized void close() {
-	 
-	    	    if(myDataBase != null)
-	    		    myDataBase.close();
-	 
-	    	    super.close();
+	    	if(myDataBase != null)
+	    		myDataBase.close();
+	    	super.close();
 		}
 
+	    
 	    /**
 	     * This method is called during the creation of the class(?)
 	     */
@@ -141,13 +157,46 @@ public class DataManager extends SQLiteOpenHelper {
 
 		}
 
-		/**
+	    
+	    /**
 		 * This method is called during an upgrade of the database, 
 		 * e.g. if you increase the database version
 		 */
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-	 
+			Log.d(TAG, "Upgrading database from v" + oldVersion + " to v"+ newVersion);
+
+			// For checking upgrade success
+			int upgradeVersion = oldVersion;
+
+			// Upgrade from v1 to v2
+			if (upgradeVersion == 1) {
+
+				// Delete current database
+				Boolean chk = myContext.deleteDatabase(DB_NAME);
+				if (chk) {
+					Log.d(TAG, "Deleted old database");
+				} else {
+					Log.d(TAG, "Unsuccessfully tried to delete old database");
+				}
+		 
+		        // Create a new database if no database exist
+		        try {
+		        	Log.d(TAG, "Trying to create new database");
+		        	Log.d(TAG, "Copying database");
+		        	copyDataBase();
+		         	Log.d(TAG, "New database created!");
+					upgradeVersion = 2;
+		        } catch (IOException ioe) {
+					upgradeVersion = 1;
+		        	throw new Error("Unable to create database");
+		        }
+		        
+			}
+			// Check if upgrade was successful or not
+			if (upgradeVersion != newVersion) {
+				Log.d(TAG, "Upgrade not successful");
+			}
 		}
 	 
 		// Add your public helper methods to access and get content from the database.

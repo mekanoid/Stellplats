@@ -65,6 +65,17 @@ public class RegionListActivity extends Activity {
 		
         super.onCreate(savedInstanceState);
 
+
+       	// Create a new instance of the DBmanger class
+        myDbHelper = new DataManager(this);
+ 
+        // Create a new database if no database exist
+        try {
+         	myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+        	throw new Error("Unable to create database");
+        }
+        
         // Set the layout for this Activity
         setContentView(R.layout.main);
 
@@ -165,16 +176,6 @@ public class RegionListActivity extends Activity {
         // Load the SharedPreferences object and get last selected region
         prefs = getSharedPreferences(prefName, MODE_PRIVATE);
        	regionNo = prefs.getInt(CHOOSEN_REGION, 0);
-
-       	// Create a new instance of the DBmanger class
-        myDbHelper = new DataManager(this);
- 
-        // Create a new database if no database exist
-        try {
-         	myDbHelper.createDataBase();
-        } catch (IOException ioe) {
-        	throw new Error("Unable to create database");
-        }
 
 		// Get the name of the region from strings.xml
 		String[] items = getResources().getStringArray(R.array.region);
