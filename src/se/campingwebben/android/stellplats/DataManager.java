@@ -20,7 +20,7 @@ public class DataManager extends SQLiteOpenHelper {
 	    // The name of your application database
 	    private static String DB_NAME = "SplDB.sqlite";
 	    // The version of your application database
-	    private static int DB_VERSION = 1;
+	    private static int DB_VERSION = 2;
 	    // The name of your database table
 //	    private static String TB_NAME = "platser";
 
@@ -164,7 +164,6 @@ public class DataManager extends SQLiteOpenHelper {
 		 */
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.d(TAG, "Upgrading database from v" + oldVersion + " to v"+ newVersion);
 
 			// For checking upgrade success
 			int upgradeVersion = oldVersion;
@@ -174,18 +173,13 @@ public class DataManager extends SQLiteOpenHelper {
 
 				// Delete current database
 				Boolean chk = myContext.deleteDatabase(DB_NAME);
-				if (chk) {
-					Log.d(TAG, "Deleted old database");
-				} else {
+				if (!chk) {
 					Log.d(TAG, "Unsuccessfully tried to delete old database");
 				}
 		 
 		        // Create a new database if no database exist
 		        try {
-		        	Log.d(TAG, "Trying to create new database");
-		        	Log.d(TAG, "Copying database");
 		        	copyDataBase();
-		         	Log.d(TAG, "New database created!");
 					upgradeVersion = 2;
 		        } catch (IOException ioe) {
 					upgradeVersion = 1;

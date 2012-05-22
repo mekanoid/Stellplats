@@ -16,11 +16,10 @@ public class DetailsActivity extends Activity{
 
 	// SQL variables
 	private SQLiteDatabase database;
-	// TODO: Byt till "plats_vinter" & "plats_avgift"
 	private static final String fields[] = {
 		"namn", "ort", "region", "beskrivning", "uppdaterad", "wgs84_lat", "wgs84_long",
-		"plats_husvagn", "vinter",  "typ", "service_toalett", "service_dusch",
-		"plats_el", "service_vatten", "service_latrin", "avgift", 
+		"plats_husvagn", "plats_vinter",  "typ", "service_toalett", "service_dusch",
+		"plats_el", "service_vatten", "service_latrin", "plats_avgift", 
 		BaseColumns._ID };
 
 	// Fields to show on screen
@@ -129,10 +128,12 @@ public class DetailsActivity extends Activity{
 		database.close();
 
         actionbarText.setText(name);
-		/**
+
+        /**
 		 *  Basic information
 		 */
-		// Name
+        // TODO Maybe delete the following rows?
+        // Name
 		TextView txt = new TextView(this); 
 //        txt = (TextView)findViewById(R.id.details_label_name); 
         //txt.setText(name);
@@ -144,7 +145,7 @@ public class DetailsActivity extends Activity{
         txt.setText("");
 
         // Region
-// TODO        txt = (TextView)findViewById(R.id.details_label_region); 
+// 		txt = (TextView)findViewById(R.id.details_label_region); 
 //        txt.setText(region);
         txt.setText("");
 

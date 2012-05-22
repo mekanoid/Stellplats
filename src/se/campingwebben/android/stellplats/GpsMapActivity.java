@@ -37,19 +37,15 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	private String wgs84_long;
 
 	// For debugging
-	private static final String TAG = "GpsMap";
+	// private static final String TAG = "GpsMap";
 
 	// Database variables
 	DataManager myDbHelper = new DataManager(this);
 
-	// TODO: Byt till "plats_vinter" & "plats_avgift"
-/*	private static final String fields[] = { "namn", "wgs84_lat", "wgs84_long", "beskrivning", "typ", "plats_vinter", "plats_husvagn",
+	// SQL query
+	private static final String fields[] = { "namn", "wgs84_lat", "wgs84_long", "beskrivning", "typ", "plats_vinter", "plats_husvagn",
 		"service_toalett", "service_vatten", "service_dusch", "service_latrin",
 		"plats_avgift", "plats_el", BaseColumns._ID };
-*/
-	private static final String fields[] = { "namn", "wgs84_lat", "wgs84_long", "beskrivning", "typ", "vinter", "plats_husvagn",
-		"service_toalett", "service_vatten", "service_dusch", "service_latrin",
-		"avgift", "plats_el", BaseColumns._ID };
 
 	private static final String order = "namn ASC";
 
@@ -91,7 +87,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
         ImageView iconLocate = (ImageView)findViewById(R.id.actionIcon02);
         ImageView iconNavigate= (ImageView)findViewById(R.id.actionIcon01);
 
-        // TODO Do things with icons
+        // TODO: For later use
         iconNavigate.setVisibility(View.GONE);
 //        iconNavigate.setOnClickListener(navigateListener);
         iconLocate.setVisibility(View.GONE);
@@ -111,7 +107,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	animateToCurrentLocation();
     	drawPitches();
 
-    	// TODO Make it possible to locate yourself
+    	// Make it possible to locate yourself
     	// getLastLocation();
     	// drawCurrPositionOverlay();
     }
@@ -168,7 +164,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	currentLocation.setLatitude(currentPoint.getLatitudeE6() / 1e6);
     	currentLocation.setLongitude(currentPoint.getLongitudeE6() / 1e6);
 
-    	// TODO Only call when using GPS 
+    	// Only call when using GPS 
     	// drawCurrPositionOverlay();
     
     }
@@ -219,8 +215,6 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     		 */
     		// Get the name
     		String name = cursor.getString(0);
-    		// TODO: Loggning av hittade namn
-    		Log.d(TAG, name);
 
     		// Get latitude
     		double latTmp = cursor.getDouble(1);
@@ -347,7 +341,6 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
      *
      * @return cursor
      */
-    // TODO: Move to DBmanager class
     private Cursor getPitches() {
 		double tmpMinLat;
     	double tmpMaxLat;
@@ -355,7 +348,7 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
     	double tmpMaxLon;
 
     	// Make an square area around current position
-    	// TODO: When starting the first time currentPoint is null... Why?
+    	// When starting the first time currentPoint is null... Why?
     	if(currentPoint!=null){
     		tmpMinLat = (currentPoint.getLatitudeE6()-650000)/1e6;
         	tmpMaxLat = (currentPoint.getLatitudeE6()+650000)/1e6;
@@ -409,24 +402,26 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 	/**
 	 *  Create an OnClickListener for the navigate icon
 	 */
-	private OnClickListener navigateListener = new OnClickListener() {
-		public void onClick(View view) {
-			// Go to external navigation software when the text is clicked
-			Intent intent = new Intent(android.content.Intent.ACTION_VIEW, 
-					Uri.parse("google.navigation:q="+wgs84_lat+","+wgs84_long));
-			startActivity(intent);
-	    }
-	};
+	// TODO: For later use
+//	private OnClickListener navigateListener = new OnClickListener() {
+//		public void onClick(View view) {
+//			// Go to external navigation software when the text is clicked
+//			Intent intent = new Intent(android.content.Intent.ACTION_VIEW, 
+//					Uri.parse("google.navigation:q="+wgs84_lat+","+wgs84_long));
+//			startActivity(intent);
+//	    }
+//	};
 
 	/**
 	 *  Create an OnClickListener for the locate icon
 	 */
-	private OnClickListener locateListener = new OnClickListener() {
-		public void onClick(View view) {
-			// Change map view to current location
-			Toast.makeText(getApplicationContext(), "Moving to current location", Toast.LENGTH_SHORT);
-		}
-	};
+	// TODO: For later use
+//	private OnClickListener locateListener = new OnClickListener() {
+//		public void onClick(View view) {
+//			// Change map view to current location
+//			Toast.makeText(getApplicationContext(), "Moving to current location", Toast.LENGTH_SHORT);
+//		}
+//	};
 
     protected boolean isRouteDisplayed() {
     	return false;

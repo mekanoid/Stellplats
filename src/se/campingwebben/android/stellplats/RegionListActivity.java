@@ -82,11 +82,6 @@ public class RegionListActivity extends Activity {
         // Get a reference to the list we are going to work with
         ListView listRegion = (ListView) findViewById(R.id.listRegion);
 
-		// Get reference to the action bar title and set title text
-        // TODO Mayby not needed?
-        //		TextView actionbarTitle = new TextView(this); 
-//        actionbarTitle = (TextView)findViewById(R.id.actionbarTitle); 
-        
 		// Get reference to the action bar text
 		TextView actionbarText = new TextView(this); 
         actionbarText = (TextView)findViewById(R.id.titleText); 

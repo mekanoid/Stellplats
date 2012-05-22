@@ -17,7 +17,7 @@ import com.readystatesoftware.mapviewballoons.BalloonItemizedOverlay;
 public class OverlayManager extends BalloonItemizedOverlay<OverlayItem> {
 
 	private Context mContext;
-	// TODO Change "mall" to "pitch" sometime...
+	// TODO Change "mall" to "pitch"
 	private ArrayList<OverlayItem> malls = new ArrayList<OverlayItem>();
 	private Location currentLocation;
 
@@ -29,13 +29,11 @@ public class OverlayManager extends BalloonItemizedOverlay<OverlayItem> {
 
 	@Override
 	protected OverlayItem createItem(int i) {
-		// TODO Auto-generated method stub
 		return malls.get(i);
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
 		return malls.size();
 	}
 
