@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="ActionBar back icon"
             android:paddingTop="8dp"
-            android:src="@drawable/ic_menu_back" />
+            android:src="@drawable/ic_action_back" />
 
         <ImageView
             android:id="@+id/actionIcon01"
@@ -27,8 +27,9 @@
             android:layout_alignParentTop="true"
             android:clickable="true"
             android:contentDescription="ActionBar icon"
+            android:paddingRight="3dp"
             android:paddingTop="8dp"
-            android:src="@drawable/ic_listview_marker" />
+            android:src="@drawable/ic_action_directions" />
 
         <ImageView
             android:id="@+id/actionIcon02"
@@ -38,8 +39,9 @@
             android:layout_toLeftOf="@+id/actionIcon01"
             android:clickable="true"
             android:contentDescription="ActionBar icon"
-            android:paddingTop="0dp"
-            android:src="@drawable/ic_menu_gps" />
+            android:paddingRight="3dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_action_map" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"

@@ -19,12 +19,12 @@
         android:background="@drawable/gradient_red" >
 
 		<ImageView
-			android:id="@+id/actionBack"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-            android:contentDescription="ActionBar back icon"
-			android:paddingTop="8dp"
-			android:src="@drawable/ic_menu_back" />
+		    android:id="@+id/actionBack"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:contentDescription="ActionBar back icon"
+		    android:paddingTop="8dp"
+		    android:src="@drawable/ic_action_back" />
 
         <ImageView
             android:id="@+id/actionIcon01"
@@ -46,7 +46,7 @@
             android:clickable="true"
             android:contentDescription="ActionBar icon"
             android:paddingTop="8dp"
-            android:src="@drawable/ic_map_location" />
+            android:src="@drawable/ic_listview_marker" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"

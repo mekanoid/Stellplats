@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
 	<!-- Custom titlebar -->
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -47,10 +48,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:paddingTop="0dp"
             android:clickable="true"
-			android:contentDescription="ActionBar icon"
-            android:src="@drawable/ic_menu_about" />
+            android:contentDescription="ActionBar icon"
+            android:paddingRight="3dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_action_info" />
 
         <ImageView
             android:id="@+id/actionIcon02"
@@ -58,11 +60,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/actionIcon01"
-            android:paddingTop="0dp"
             android:clickable="true"
-			android:contentDescription="ActionBar icon"
-            android:src="@drawable/ic_menu_list" />
-
+            android:contentDescription="ActionBar icon"
+            android:paddingRight="3dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_action_filter" />
     </RelativeLayout>
 
 	<!-- List of pitches in a region (or all regions) -->

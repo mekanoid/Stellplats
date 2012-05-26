@@ -248,16 +248,18 @@ public class RegionListActivity extends Activity {
 	/**
 	 * Create a menu (from res/menu/menu_list.xml)
 	 */
+	/*
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.list_menu, menu);
 	    return true;
 	}
-
+	*/
 	/**
 	 * Listen for clicks on Menu
 	 */
+	/*
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		final SharedPreferences prefs;
@@ -353,7 +355,7 @@ public class RegionListActivity extends Activity {
 	    }
 	    return true;
 	}
-	
+	*/
 	
 	/**
 	 * Update list with stellplatser from a different region = regionNo
