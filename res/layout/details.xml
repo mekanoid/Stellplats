@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-	<!-- Custom titlebar -->
+    <!-- Custom titlebar -->
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/gradient_red" >
 
-		<ImageView
-			android:id="@+id/actionBack"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:paddingTop="8dp"
+        <ImageView
+            android:id="@+id/actionBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:contentDescription="ActionBar back icon"
-			android:src="@drawable/ic_menu_back" />
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_menu_back" />
 
         <ImageView
             android:id="@+id/actionIcon01"
@@ -73,11 +73,10 @@
                 android:text="@string/stellplats"
                 android:textAppearance="@style/ActionBarText" />
         </LinearLayout>
-
     </RelativeLayout>
 
-	<!-- Name -->
-<!-- 
+    <!-- Name -->
+    <!--
     <TextView
         android:id="@+id/details_label_name"
         android:layout_width="fill_parent"
@@ -91,17 +90,18 @@
         android:textStyle="bold" >
 
     </TextView>
- -->
+    -->
     <!-- Where -->
-<!-- 
+    <!--
 	<LinearLayout android:id="@+id/info_places"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="1dp"
 		android:orientation="horizontal">
- -->
- 		<!-- Place -->
-<!-- 		<TextView android:id="@+id/details_label_place"
+    -->
+    <!-- Place -->
+    <!--
+     		<TextView android:id="@+id/details_label_place"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textSize="12sp"
@@ -119,9 +119,10 @@
 			android:layout_marginRight="0dp"
 			android:layout_marginLeft="0dp">
 		</TextView>
- -->
- 		<!-- Region -->
-<!-- 		<TextView android:id="@+id/details_label_region"
+    -->
+    <!-- Region -->
+    <!--
+     		<TextView android:id="@+id/details_label_region"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:textSize="12sp"
@@ -131,9 +132,10 @@
 			android:layout_marginLeft="0dp">
 		</TextView>
 	</LinearLayout>
- -->
-	<!-- Heading: Facts -->
- <!-- 	<TextView android:id="@+id/textView1" 
+    -->
+    <!-- Heading: Facts -->
+    <!--
+	<TextView android:id="@+id/textView1" 
 		android:textAppearance="?android:attr/textAppearanceSmall" 
 		android:layout_height="wrap_content" 
 		android:layout_width="fill_parent" 
@@ -144,253 +146,318 @@
 		android:layout_marginTop="15sp"
 		android:text="@string/details_label_facts">
 	</TextView>
-	 -->
-	<!-- Caravans welcome or not -->
-	<LinearLayout android:id="@+id/linearLayout2" 
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10sp">
-		<ImageView android:id="@+id/details_image_caravan"
-			android:src="@drawable/ic_spl_button_unknown" 
-		    android:contentDescription="@string/details_img_alt"
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="5sp"
-			android:layout_marginTop="2sp">
-		</ImageView>
-		<TextView android:id="@+id/details_label_caravan"
-			android:layout_width="wrap_content" 
-			android:textAppearance="?android:attr/textAppearanceSmall" 
-			android:layout_height="wrap_content" 
-			android:text="@string/details_label_caravan" 
-			android:layout_marginTop="3sp" 
-			android:layout_marginLeft="5sp">
-		</TextView>
-	</LinearLayout>
-	<!-- Open at winter / long stay or short stay -->
-	<LinearLayout android:id="@+id/linearLayout3" 
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content"
-		android:layout_marginTop="5sp">
-		<ImageView android:id="@+id/details_image_winter"
-			android:src="@drawable/ic_spl_button_unknown" 
-		    android:contentDescription="@string/details_img_alt"
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="5sp"
-			android:layout_marginTop="2sp">
-		</ImageView>
-		<TextView android:id="@+id/details_label_winter"
-			android:layout_width="wrap_content" 
-			android:textAppearance="?android:attr/textAppearanceSmall" 
-			android:layout_height="wrap_content" 
-			android:text="@string/details_label_winter" 
-			android:layout_marginTop="3sp" 
-			android:layout_marginLeft="5sp">
-		</TextView>
+    -->
+    <!-- Caravans welcome or not -->
 
-		<ImageView
-		    android:id="@+id/details_image_stay"
-		    android:contentDescription="@string/details_img_alt"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginLeft="25sp"
-		    android:layout_marginTop="2sp"
-		    android:src="@drawable/ic_spl_button_unknown" >
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp" >
 
-		</ImageView>
-		<TextView android:id="@+id/details_label_stay"
-			android:layout_width="wrap_content" 
-			android:textAppearance="?android:attr/textAppearanceSmall" 
-			android:layout_height="wrap_content" 
-			android:text="@string/details_label_stay" 
-			android:layout_marginTop="3sp" 
-			android:layout_marginLeft="5sp">
-		</TextView>
-	</LinearLayout>
+        <ImageView
+            android:id="@+id/details_image_caravan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="2sp"
+            android:contentDescription="@string/details_img_alt"
+            android:paddingTop="3dp"
+            android:src="@drawable/ic_spl_button_ok" >
+        </ImageView>
 
-	<!-- Heading: Service -->
-	<TextView android:id="@+id/details_heading_service" 
-		android:textAppearance="?android:attr/textAppearanceSmall" 
-		android:layout_height="wrap_content" 
-		android:layout_width="fill_parent" 
-		android:background="#404040" 
-		android:paddingLeft="5sp"
-		android:paddingTop="2sp"
-		android:layout_marginTop="20sp"
-		android:paddingBottom="2sp"
-		android:text="@string/details_label_service">
-	</TextView>
+        <TextView
+            android:id="@+id/details_label_caravan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="3sp"
+            android:text="@string/details_label_caravan"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+    </LinearLayout>
+    <!-- Open at winter / long stay or short stay -->
 
-	<TableLayout android:id="@+id/tableLayout1" 
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-		<TableRow android:id="@+id/tableRow5" 
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:layout_marginTop="5sp">
-			<!-- Toilet -->
-			<ImageView android:id="@+id/details_image_toilet"
-				android:src="@drawable/ic_spl_button_unknown" 
-			    android:contentDescription="@string/details_img_alt"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="5sp">
-			</ImageView>
-			<TextView android:id="@+id/details_label_toilet"
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:textAppearance="?android:attr/textAppearanceSmall" 
-				android:text="@string/details_label_toilet" 
-				android:layout_marginTop="2sp"
-				android:layout_marginLeft="5sp">
-			</TextView>
-			<!-- Shower -->
-			<ImageView android:id="@+id/details_image_shower"
-				android:src="@drawable/ic_spl_button_unknown" 
-			    android:contentDescription="@string/details_img_alt"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="25sp">
-			</ImageView>
-			<TextView android:id="@+id/details_label_shower"
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:textAppearance="?android:attr/textAppearanceSmall" 
-				android:text="@string/details_label_shower" 
-				android:layout_marginTop="2sp"
-				android:layout_marginLeft="5sp">
-			</TextView>
-			<!-- Electricity -->
-			<ImageView android:id="@+id/details_image_electric"
-				android:src="@drawable/ic_spl_button_unknown" 
-			    android:contentDescription="@string/details_img_alt"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="25sp">
-			</ImageView>
-			<TextView android:id="@+id/details_label_electric"
-				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content" 
-				android:textAppearance="?android:attr/textAppearanceSmall" 
-				android:text="@string/details_label_electric" 
-				android:layout_marginTop="2sp"
-				android:layout_marginLeft="5sp">
-			</TextView>
-		</TableRow>
-		<TableRow android:id="@+id/tableRow4" 
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:layout_marginTop="5sp">
-			<!-- Water -->
-			<ImageView android:id="@+id/details_image_water"
-				android:src="@drawable/ic_spl_button_unknown" 
-			    android:contentDescription="@string/details_img_alt"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="5sp">
-			</ImageView>
-			<TextView android:id="@+id/details_label_water"
-				android:layout_width="wrap_content" 
-				android:textAppearance="?android:attr/textAppearanceSmall" 
-				android:layout_height="wrap_content" 
-				android:text="@string/details_label_water" 
-				android:layout_marginTop="2sp"
-				android:layout_marginLeft="5sp">
-			</TextView>
-			<!-- Waste -->
-			<ImageView android:id="@+id/details_image_waste"
-				android:src="@drawable/ic_spl_button_unknown" 
-			    android:contentDescription="@string/details_img_alt"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="25sp">
-			</ImageView>
-			<TextView android:id="@+id/details_label_waste"
-				android:layout_width="wrap_content" 
-				android:textAppearance="?android:attr/textAppearanceSmall" 
-				android:layout_height="wrap_content" 
-				android:text="@string/details_label_waste" 
-				android:layout_marginTop="2sp"
-				android:layout_marginLeft="5sp">
-			</TextView>
-			<!-- Fee -->
-			<ImageView android:id="@+id/details_image_fee"
-				android:src="@drawable/ic_spl_button_unknown" 
-			    android:contentDescription="@string/details_img_alt"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="25sp">
-			</ImageView>
-			<TextView android:id="@+id/details_label_fee"
-				android:layout_width="wrap_content" 
-				android:textAppearance="?android:attr/textAppearanceSmall" 
-				android:layout_height="wrap_content" 
-				android:text="@string/details_label_fee" 
-				android:layout_marginTop="2sp"
-				android:layout_marginLeft="5sp">
-			</TextView>
-		</TableRow>
-	</TableLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp" >
 
-	<!-- Heading: Description -->
-	<TextView android:id="@+id/textView2" 
-		android:textAppearance="?android:attr/textAppearanceSmall" 
-		android:layout_height="wrap_content" 
-		android:layout_width="fill_parent" 
-		android:background="#404040" 
-		android:paddingLeft="5sp"
-		android:paddingTop="2sp"
-		android:paddingBottom="2sp"
-		android:layout_marginTop="20sp"
-		android:text="@string/details_label_descr">
-	</TextView>
-	<!-- Description -->
-	<TextView android:id="@+id/text_description"
-		android:textAppearance="?android:attr/textAppearanceSmall" 
-		android:text="text_description" 
-		android:layout_height="wrap_content" 
-		android:padding="5sp" 
-		android:layout_width="fill_parent">
-	</TextView>
+        <ImageView
+            android:id="@+id/details_image_winter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="2sp"
+            android:contentDescription="@string/details_img_alt"
+            android:paddingTop="3dp"
+            android:src="@drawable/ic_spl_button_unknown" >
+        </ImageView>
 
-	<!-- Heading: Other -->
-	<TextView android:id="@+id/textView3" 
-		android:textAppearance="?android:attr/textAppearanceSmall" 
-		android:layout_height="wrap_content" 
-		android:layout_width="fill_parent" 
-		android:background="#404040" 
-		android:paddingLeft="5sp"
-		android:paddingTop="2sp"
-		android:paddingBottom="2sp"
-		android:layout_marginTop="20sp"
-		android:text="@string/details_label_other">
-	</TextView>
-	<LinearLayout android:id="@+id/detail_linearLayout1"
-		android:layout_width="fill_parent" 
-		android:layout_height="wrap_content">
-		<!-- GPS coordinates -->
+        <TextView
+            android:id="@+id/details_label_winter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="3sp"
+            android:text="@string/details_label_winter"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
 
-		<TextView
-		    android:id="@+id/text_wgs84"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:clickable="true"
-		    android:padding="5sp"
-		    android:text="text_wgs84"
-		    android:textAppearance="?android:attr/textAppearanceSmall">
+        <ImageView
+            android:id="@+id/details_image_stay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:layout_marginTop="2sp"
+            android:contentDescription="@string/details_img_alt"
+            android:paddingTop="3dp"
+            android:src="@drawable/ic_spl_button_unknown" >
+        </ImageView>
 
-		</TextView>
-		<!-- Latest update -->
-		<TextView android:id="@+id/text_updated" 
-			android:textAppearance="?android:attr/textAppearanceSmall" 
-			android:text="text_updated" 
-			android:layout_height="wrap_content" 
-			android:layout_gravity="right"
-			android:layout_width="fill_parent"
-			android:gravity="right"
-			android:padding="5sp">
-		</TextView>
-	</LinearLayout>
+        <TextView
+            android:id="@+id/details_label_stay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="3sp"
+            android:text="@string/details_label_stay"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+    </LinearLayout>
 
- </LinearLayout>
+    <!-- Heading: Service -->
+
+    <TextView
+        android:id="@+id/details_heading_service"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="#404040"
+        android:paddingBottom="2sp"
+        android:paddingLeft="5sp"
+        android:paddingTop="2sp"
+        android:text="@string/details_label_service"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+    </TextView>
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp" >
+
+            <!-- Toilet -->
+
+            <ImageView
+                android:id="@+id/details_image_toilet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:contentDescription="@string/details_img_alt"
+                android:paddingTop="3dp"
+                android:src="@drawable/ic_spl_button_unknown" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/details_label_toilet"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="2sp"
+                android:text="@string/details_label_toilet"
+                android:textAppearance="?android:attr/textAppearanceSmall" >
+            </TextView>
+            <!-- Shower -->
+
+            <ImageView
+                android:id="@+id/details_image_shower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25sp"
+                android:contentDescription="@string/details_img_alt"
+                android:paddingTop="3dp"
+                android:src="@drawable/ic_spl_button_unknown" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/details_label_shower"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="2sp"
+                android:text="@string/details_label_shower"
+                android:textAppearance="?android:attr/textAppearanceSmall" >
+            </TextView>
+            <!-- Electricity -->
+
+            <ImageView
+                android:id="@+id/details_image_electric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25sp"
+                android:contentDescription="@string/details_img_alt"
+                android:paddingTop="3dp"
+                android:src="@drawable/ic_spl_button_unknown" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/details_label_electric"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="2sp"
+                android:text="@string/details_label_electric"
+                android:textAppearance="?android:attr/textAppearanceSmall" >
+            </TextView>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp" >
+
+            <!-- Water -->
+
+            <ImageView
+                android:id="@+id/details_image_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:contentDescription="@string/details_img_alt"
+                android:paddingTop="3dp"
+                android:src="@drawable/ic_spl_button_unknown" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/details_label_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="2sp"
+                android:text="@string/details_label_water"
+                android:textAppearance="?android:attr/textAppearanceSmall" >
+            </TextView>
+            <!-- Waste -->
+
+            <ImageView
+                android:id="@+id/details_image_waste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25sp"
+                android:contentDescription="@string/details_img_alt"
+                android:paddingTop="3dp"
+                android:src="@drawable/ic_spl_button_unknown" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/details_label_waste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="2sp"
+                android:text="@string/details_label_waste"
+                android:textAppearance="?android:attr/textAppearanceSmall" >
+            </TextView>
+            <!-- Fee -->
+
+            <ImageView
+                android:id="@+id/details_image_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25sp"
+                android:contentDescription="@string/details_img_alt"
+                android:paddingTop="3dp"
+                android:src="@drawable/ic_spl_button_unknown" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/details_label_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="2sp"
+                android:text="@string/details_label_fee"
+                android:textAppearance="?android:attr/textAppearanceSmall" >
+            </TextView>
+        </TableRow>
+    </TableLayout>
+
+    <!-- Heading: Description -->
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="#404040"
+        android:paddingBottom="2sp"
+        android:paddingLeft="5sp"
+        android:paddingTop="2sp"
+        android:text="@string/details_label_descr"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+    </TextView>
+    <!-- Description -->
+
+    <TextView
+        android:id="@+id/text_description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5sp"
+        android:text="text_description"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+    </TextView>
+
+    <!-- Heading: Other -->
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="#404040"
+        android:paddingBottom="2sp"
+        android:paddingLeft="5sp"
+        android:paddingTop="2sp"
+        android:text="@string/details_label_other"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/detail_linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- GPS coordinates -->
+
+        <TextView
+            android:id="@+id/text_wgs84"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5sp"
+            android:text="text_wgs84"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+        <!-- Latest update -->
+
+        <TextView
+            android:id="@+id/text_updated"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:padding="5sp"
+            android:text="text_updated"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>
