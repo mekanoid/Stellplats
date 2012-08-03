@@ -1,6 +1,6 @@
 # Stellplats
 This repository contains an Android application called Stellplats (or Ställplats in swedish). 
-It's an app for finding pitches for mobile homes in Sweden.
+It's an app for finding pitches for mobile homes in Sweden but it is **no longer under active development!**
 
 
 ## Download
@@ -9,13 +9,13 @@ compile it in Eclipse or Android SDK.
 
 
 ## Translations
-Right now the app only comes with english (default) and swedish translations. 
+The app only comes with english (default) and swedish translations. 
 But if you have/get an (free) account at [Transifex](https://www.transifex.net/projects/p/stellplats/ "Help translating Stellplats"), 
 you will be able to help out with translations!
 
 
 ## Permissions
-The following permission is used in the application:
+The following permissions is used in the application:
 
 * Internet - for Google maps
 * GPS - for showing pitches around your current location
@@ -38,10 +38,7 @@ released under a Creative Commons BY v2.5 license.
 
 
 ## More information
-Swedish users can visit [Campingwebben](http://www.campingwebben.se/android/ "Svenska ställplatser hos Campingwebben") 
-to get more information about this app. 
-They can also visit [Campingwebben at Google+](http://gplus.to/campingwebben/ "Follow Campingwebben at Google+") 
-to read the latest news about the app.
+You can find more information in the [wiki](https://github.com/mekanoid/Stellplats/wiki/).
 
 
-// Peter Kindström, Campingwebben
+// Peter Kindström
