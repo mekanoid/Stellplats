@@ -62,9 +62,11 @@
             android:layout_toLeftOf="@+id/actionIcon01"
             android:clickable="true"
             android:contentDescription="ActionBar icon"
+            android:maxHeight="32dp"
             android:paddingRight="3dp"
             android:paddingTop="8dp"
             android:src="@drawable/ic_action_filter" />
+
     </RelativeLayout>
 
 	<!-- List of pitches in a region (or all regions) -->

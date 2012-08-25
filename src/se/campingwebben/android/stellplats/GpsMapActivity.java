@@ -171,17 +171,17 @@ public class GpsMapActivity extends MapActivity implements LocationListener{
 
     // Draw the map with a marker for current position
     public void drawCurrPositionOverlay(){
-    	List<Overlay> overlays = mapView.getOverlays();
-    	overlays.remove(currPos);
-    	Drawable marker = getResources().getDrawable(R.drawable.ic_map_current);
-    	currPos = new OverlayManager(marker,mapView);
-    	if(currentPoint!=null){
-    		OverlayItem overlayitem = new OverlayItem(
-    				currentPoint, getString(R.string.gmap_msg_currentTitle), getString(R.string.gmap_msg_currentText));
-    		currPos.addOverlay(overlayitem);
-    		overlays.add(currPos);
-    		currPos.setCurrentLocation(currentLocation);
-    	}
+//    	List<Overlay> overlays = mapView.getOverlays();
+//    	overlays.remove(currPos);
+//    	Drawable marker = getResources().getDrawable(R.drawable.ic_map_current);
+//    	currPos = new OverlayManager(marker,mapView);
+//    	if(currentPoint!=null){
+//    		OverlayItem overlayitem = new OverlayItem(
+//    				currentPoint, getString(R.string.gmap_msg_currentTitle), getString(R.string.gmap_msg_currentText));
+//    		currPos.addOverlay(overlayitem);
+//    		overlays.add(currPos);
+//    		currPos.setCurrentLocation(currentLocation);
+//    	}
     }
 
     public void animateToCurrentLocation(){

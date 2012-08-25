@@ -10,15 +10,13 @@ compile it in Eclipse or Android SDK.
 
 ## Translations
 The app only comes with english (default) and swedish translations. 
-But if you have/get an (free) account at [Transifex](https://www.transifex.net/projects/p/stellplats/ "Help translating Stellplats"), 
-you will be able to help out with translations!
 
 
 ## Permissions
 The following permissions is used in the application:
 
 * Internet - for Google maps
-* GPS - for showing pitches around your current location
+* GPS - for showing pitches around your current location (not implemented yet)
 
 
 ## Included external works
