@@ -4,8 +4,8 @@ It's an app for finding pitches for mobile homes in Sweden but it is **no longer
 
 
 ## Download
-You can download this application from [Google Play Market](http://bit.ly/stellplats) or by downloading this source code and 
-compile it in Eclipse or Android SDK.
+You can download this application from [Google Play Market](http://play.google.com/store/apps/details?id=se.campingwebben.android.stellplats) 
+or by downloading this source code and compile it in Eclipse or Android SDK.
 
 
 ## Translations
